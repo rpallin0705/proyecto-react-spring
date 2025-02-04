@@ -1,13 +1,13 @@
-package com.iesvdc.acceso.pistasdeportivas;
+package com.example.proyectoapirest.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PistasdeportivasApplication {
+public class BackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PistasdeportivasApplication.class, args);
+		SpringApplication.run(BackendApplication.class, args);
 	}
 
 }

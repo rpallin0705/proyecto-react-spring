@@ -1,10 +1,10 @@
-package com.iesvdc.acceso.pistasdeportivas;
+package com.example.proyectoapirest.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PistasdeportivasApplicationTests {
+class BackendApplicationTests {
 
 	@Test
 	void contextLoads() {
