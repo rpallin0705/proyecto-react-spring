@@ -4,7 +4,7 @@ import com.example.proyectoapirest.backend.domain.model.VideoGame;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "videojuegos")
+@Table(name = "videogame")
 public class VideoGameEntity {
 
     @Id
