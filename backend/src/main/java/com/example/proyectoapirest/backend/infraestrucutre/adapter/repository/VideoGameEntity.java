@@ -1,28 +1,30 @@
 package com.example.proyectoapirest.backend.infraestrucutre.adapter.repository;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.example.proyectoapirest.backend.domain.model.VideoGame;
+import jakarta.persistence.*;
 
-@Data
 @Entity
-@NoArgsConstructor
+@Table(name = "videojuegos")
 public class VideoGameEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false, unique = true, length = 50)
     private String name;
-
-    @Column(nullable = false, length = 50)
     private String description;
-
-    @Column(nullable = false)
     private double prize;
+
+    public VideoGameEntity() {
+    }
+
+    public VideoGameEntity(VideoGame videoGame) {
+        this.id = videoGame.getId();
+        this.name = videoGame.getName();
+        this.description = videoGame.getDescription();
+        this.prize = videoGame.getPrize();
+    }
+
+    public VideoGame toDomainModel() {
+        return new VideoGame(id, name, description, prize);
+    }
 }
