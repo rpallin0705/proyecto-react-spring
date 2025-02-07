@@ -1,5 +1,6 @@
 package com.example.proyectoapirest.backend.domain.model;
 
+import com.example.proyectoapirest.backend.application.dto.CreateVideoGameDTO;
 import com.example.proyectoapirest.backend.application.dto.VideoGameDTO;
 
 import jakarta.persistence.Column;
@@ -22,8 +23,8 @@ public class VideoGame {
     private String description;
     private double prize;
 
-    public VideoGame(VideoGameDTO newVideoGameDTO) {
-        this.id = newVideoGameDTO.id();
+    public VideoGame(CreateVideoGameDTO newVideoGameDTO) {
+        this.id = null;
         this.name = newVideoGameDTO.name();
         this.description = newVideoGameDTO.description();
         this.prize = newVideoGameDTO.prize();

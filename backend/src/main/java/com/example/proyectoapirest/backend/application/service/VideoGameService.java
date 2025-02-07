@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.example.proyectoapirest.backend.application.dto.CreateVideoGameDTO;
 import com.example.proyectoapirest.backend.application.dto.VideoGameDTO;
 import com.example.proyectoapirest.backend.application.usecase.CreateVideoGameUseCase;
 import com.example.proyectoapirest.backend.application.usecase.GetVideoGameByNameUseCase;
@@ -29,7 +30,7 @@ public class VideoGameService
     }
 
     @Override
-    public Optional<VideoGameDTO> create(VideoGameDTO newVideoGameDTO) {
+    public Optional<VideoGameDTO> create(CreateVideoGameDTO newVideoGameDTO) {
         if (videoGameRepository.findByName(newVideoGameDTO.name()).isPresent()) {
             return Optional.empty();
         }

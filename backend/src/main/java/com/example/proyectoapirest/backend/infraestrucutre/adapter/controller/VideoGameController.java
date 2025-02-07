@@ -1,5 +1,6 @@
 package com.example.proyectoapirest.backend.infraestrucutre.adapter.controller;
 
+import com.example.proyectoapirest.backend.application.dto.CreateVideoGameDTO;
 import com.example.proyectoapirest.backend.application.dto.VideoGameDTO;
 import com.example.proyectoapirest.backend.application.service.VideoGameService;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class VideoGameController {
     }
 
     @PostMapping
-    public ResponseEntity<VideoGameDTO> create(@RequestBody VideoGameDTO newVideoGameDTO) {
+    public ResponseEntity<VideoGameDTO> create(@RequestBody CreateVideoGameDTO newVideoGameDTO) {
         return videoGameService.create(newVideoGameDTO)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.badRequest().build());
