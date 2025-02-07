@@ -2,6 +2,7 @@ package com.example.proyectoapirest.backend.infraestrucutre.adapter.repository;
 
 import com.example.proyectoapirest.backend.domain.model.VideoGame;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "videogame")
@@ -11,13 +12,10 @@ public class VideoGameEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Version
-    private Long version;
-
     @Column(nullable = false, length = 50, unique = true)
     private String name;
 
-    @Column(nullable = false, length = 100)
+    @Size(max = 500)
     private String description;
 
     @Column(nullable = false)
