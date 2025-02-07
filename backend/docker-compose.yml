@@ -1,19 +1,33 @@
 version: '3.1'
 
 services:
-
-  adminer:
-    image: adminer
-    restart: "no"
-    ports:
-      - ${ADMINER_PORT}:8080
-
   db:
     image: mysql:latest
     restart: "no"
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      #MYSQL_USER: ${MYSQL_USERNAME}
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
-      - ${MYSQL_PORT}:3306
+      - "${MYSQL_PORT}:3306"
     volumes:
       - ./scripts:/docker-entrypoint-initdb.d
+
+  adminer:
+    image: adminer
+    restart: "no"
+    ports:
+      - "${ADMINER_PORT}:8080"
+
+  backend:
+    build: .
+    restart: on-failure:5
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/${MYSQL_DATABASE}
+      SPRING_DATASOURCE_USERNAME: ${MYSQL_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "${SERVICE_PORT}:8080"
