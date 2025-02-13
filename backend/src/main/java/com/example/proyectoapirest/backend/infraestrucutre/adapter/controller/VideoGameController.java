@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/videogames")
@@ -49,6 +50,14 @@ public class VideoGameController {
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         return videoGameService.delete(id)
                 ? ResponseEntity.noContent().build()
+                : ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/categories")
+    public ResponseEntity<List<String>> getAllCategories() {
+        List<String> categoriesList = videoGameService.getVideoGamesCategories();
+        return !categoriesList.isEmpty()
+                ? ResponseEntity.ok(categoriesList)
                 : ResponseEntity.notFound().build();
     }
 }

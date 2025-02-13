@@ -44,3 +44,5 @@ MYSQL_DATABASE=videogame
 ADMINER_PORT=8181
 SERVICE_PORT=8080
 ```
+
+*todo mirar poorque el import.sql no funciona*
