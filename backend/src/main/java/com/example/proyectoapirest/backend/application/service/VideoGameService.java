@@ -16,12 +16,12 @@ import com.example.proyectoapirest.backend.domain.model.VideoGame;
 import com.example.proyectoapirest.backend.domain.repository.VideoGameRepository;
 
 @Service
-public class VideoGameService
-        implements CreateVideoGameUseCase,
+public class VideoGameService implements
+        CreateVideoGameUseCase,
         GetVideoGameByNameUseCase,
         ListVideoGamesUseCase,
         UpdateVideoGameUseCase,
-        DeleteVideoGameUseCase {  // 🔥 Ahora implementa la interfaz Delete
+        DeleteVideoGameUseCase {
 
     private final VideoGameRepository videoGameRepository;
 
@@ -42,7 +42,8 @@ public class VideoGameService
                 savedVideoGame.getId(),
                 savedVideoGame.getName(),
                 savedVideoGame.getDescription(),
-                savedVideoGame.getPrize()));
+                savedVideoGame.getPrize(),
+                savedVideoGame.getCategory()));
     }
 
     @Override
@@ -54,8 +55,12 @@ public class VideoGameService
                             updatedVideoGameDTO.description(),
                             updatedVideoGameDTO.prize());
                     videoGameRepository.save(videoGame);
-                    return new VideoGameDTO(videoGame.getId(), videoGame.getName(),
-                            videoGame.getDescription(), videoGame.getPrize());
+                    return new VideoGameDTO(
+                            videoGame.getId(),
+                            videoGame.getName(),
+                            videoGame.getDescription(),
+                            videoGame.getPrize(),
+                            videoGame.getCategory());
                 });
     }
 
@@ -66,7 +71,8 @@ public class VideoGameService
                         videoGame.getId(),
                         videoGame.getName(),
                         videoGame.getDescription(),
-                        videoGame.getPrize()))
+                        videoGame.getPrize(),
+                        videoGame.getCategory()))
                 .toList();
     }
 
@@ -77,7 +83,8 @@ public class VideoGameService
                         videoGame.getId(),
                         videoGame.getName(),
                         videoGame.getDescription(),
-                        videoGame.getPrize()));
+                        videoGame.getPrize(),
+                        videoGame.getCategory()));
     }
 
     @Override

@@ -22,6 +22,7 @@ public class VideoGame {
     private String name;
     private String description;
     private double prize;
+    private VGCategory category;
 
     public VideoGame(CreateVideoGameDTO newVideoGameDTO) {
         this.id = null;
