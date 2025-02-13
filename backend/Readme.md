@@ -46,3 +46,5 @@ SERVICE_PORT=8080
 ```
 
 *todo mirar poorque el import.sql no funciona*
+
+npm install react-router-dom axios
