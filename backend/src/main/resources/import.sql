@@ -1,46 +1,20 @@
-use videogame;
-INSERT INTO videogame (name, description, prize, category)
-VALUES ('Black Myth: Wukong', 'Un juego de rol de acción basado en la leyenda del Rey Mono.', 59.99, 'ACCION'),
-       ('Dragon Ball Sparking! Zero', 'Un juego de lucha basado en la popular serie Dragon Ball.', 49.99, 'ACCION'),
-       ('Super Mario Bros. Wonder', 'Una nueva aventura de Mario con emocionantes niveles y desafíos.', 59.99,
-        'AVENTURA'),
-       ('The Legend of Zelda: Echoes of Wisdom',
-        'Una épica aventura en el mundo de Hyrule con nuevos acertijos y enemigos.', 69.99, 'AVENTURA'),
-       ('EA Sports FC 25', 'La última entrega de la popular serie de simulación de fútbol.', 59.99, 'DEPORTES'),
-       ('Nintendo Switch Sports', 'Una colección de deportes para jugar con amigos y familia en la Nintendo Switch.',
-        49.99, 'DEPORTES'),
-       ('Age of Mythology Retold', 'Una versión remasterizada del clásico juego de estrategia en tiempo real.', 39.99,
-        'ESTRATEGIA'),
-       ('Two Point Museum', 'Gestiona y desarrolla tu propio museo en este simulador de estrategia.', 29.99,
-        'ESTRATEGIA'),
-       ('Silent Hill 2', 'Un juego de terror psicológico que te sumerge en una inquietante ciudad.', 59.99, 'TERROR'),
-       ('Resident Evil 4 Remake', 'Una versión actualizada del clásico juego de supervivencia y terror.', 59.99,
-        'TERROR'),
-       ('Frostpunk 2',
-        'Secuela del aclamado juego de supervivencia social, donde lideras una ciudad en un mundo postapocalíptico helado.',
-        49.99, 'ESTRATEGIA'),
-       ('F1 24',
-        'Simulador oficial de la temporada 2024 de Fórmula 1, ofreciendo una experiencia de carreras realista y dinámica.',
-        59.99, 'DEPORTES'),
-       ('Indiana Jones y el Gran Círculo',
-        'Aventura de acción que emula las primeras películas de Indiana Jones, combinando sigilo, combate y exploración.',
-        69.99, 'AVENTURA'),
-       ('Animal Well',
-        'Metroidvania no lineal con toques de terror, donde cada jugador descubre secretos y resuelve puzles a su propio ritmo.',
-        29.99, 'AVENTURA'),
-       ('Prince of Persia: The Lost Crown',
-        'Remake del clásico juego de plataformas, modernizado con nuevas mecánicas y gráficos mejorados.', 59.99,
-        'AVENTURA'),
-       ('Tekken 8',
-        'Última entrega de la icónica saga de lucha, con un elenco ampliado y mecánicas de combate más agresivas.',
-        59.99, 'ACCION'),
-       ('Mario vs. Donkey Kong',
-        'Remake de un juego de puzles de Nintendo DS, donde Mario y Donkey Kong se enfrentan en desafiantes niveles.',
-        39.99, 'AVENTURA'),
-       ('Senua\'s Saga: Hellblade II', 'Secuela del aclamado juego de acción y aventura, profundizando en la historia de Senua en un mundo mitológico.', 69.99, 'AVENTURA'),
-('Dragon\'s Dogma 2',
-        'Juego de rol de acción que ofrece un mundo abierto y dinámico, con combates intensos y una historia envolvente.',
-        59.99, 'ACCION'),
-       ('Elden Ring: Shadow of the Erdtree',
-        'Expansión del exitoso juego de rol de acción, que introduce nuevas áreas, enemigos y mecánicas de juego.',
-        39.99, 'ACCION');
+INSERT INTO videogame (name, description, prize, category) VALUES ('Black Myth: Wukong', 'Un juego de rol de acción basado en la leyenda del Rey Mono.', 59.99, 'ACCION');
+INSERT INTO videogame (name, description, prize, category) VALUES ('Dragon Ball Sparking! Zero', 'Un juego de lucha basado en la popular serie Dragon Ball.', 49.99, 'ACCION');
+INSERT INTO videogame (name, description, prize, category) VALUES ('Super Mario Bros. Wonder', 'Una nueva aventura de Mario con emocionantes niveles y desafíos.', 59.99, 'AVENTURA');
+INSERT INTO videogame (name, description, prize, category) VALUES ('The Legend of Zelda: Echoes of Wisdom', 'Una épica aventura en el mundo de Hyrule con nuevos acertijos y enemigos.', 69.99, 'AVENTURA');
+INSERT INTO videogame (name, description, prize, category) VALUES ('EA Sports FC 25', 'La última entrega de la popular serie de simulación de fútbol.', 59.99, 'DEPORTES');
+INSERT INTO videogame (name, description, prize, category) VALUES ('Nintendo Switch Sports', 'Una colección de deportes para jugar con amigos y familia en la Nintendo Switch.', 49.99, 'DEPORTES');
+INSERT INTO videogame (name, description, prize, category) VALUES ('Age of Mythology Retold', 'Una versión remasterizada del clásico juego de estrategia en tiempo real.', 39.99, 'ESTRATEGIA');
+INSERT INTO videogame (name, description, prize, category) VALUES ('Two Point Museum', 'Gestiona y desarrolla tu propio museo en este simulador de estrategia.', 29.99, 'ESTRATEGIA');
+INSERT INTO videogame (name, description, prize, category) VALUES ('Silent Hill 2', 'Un juego de terror psicológico que te sumerge en una inquietante ciudad.', 59.99, 'TERROR');
+INSERT INTO videogame (name, description, prize, category) VALUES ('Resident Evil 4 Remake', 'Una versión actualizada del clásico juego de supervivencia y terror.', 59.99, 'TERROR');
+INSERT INTO videogame (name, description, prize, category) VALUES ('Frostpunk 2', 'Secuela del aclamado juego de supervivencia social, donde lideras una ciudad en un mundo postapocalíptico helado.', 49.99, 'ESTRATEGIA');
+INSERT INTO videogame (name, description, prize, category) VALUES ('F1 24', 'Simulador oficial de la temporada 2024 de Fórmula 1, ofreciendo una experiencia de carreras realista y dinámica.', 59.99, 'DEPORTES');
+INSERT INTO videogame (name, description, prize, category) VALUES ('Indiana Jones y el Gran Círculo', 'Aventura de acción que emula las primeras películas de Indiana Jones, combinando sigilo, combate y exploración.', 69.99, 'AVENTURA');
+INSERT INTO videogame (name, description, prize, category) VALUES ('Animal Well', 'Metroidvania no lineal con toques de terror, donde cada jugador descubre secretos y resuelve puzles a su propio ritmo.', 29.99, 'AVENTURA');
+INSERT INTO videogame (name, description, prize, category) VALUES ('Prince of Persia: The Lost Crown', 'Remake del clásico juego de plataformas, modernizado con nuevas mecánicas y gráficos mejorados.', 59.99, 'AVENTURA');
+INSERT INTO videogame (name, description, prize, category) VALUES ('Tekken 8', 'Última entrega de la icónica saga de lucha, con un elenco ampliado y mecánicas de combate más agresivas.', 59.99, 'ACCION');
+INSERT INTO videogame (name, description, prize, category) VALUES ('Mario vs. Donkey Kong', 'Remake de un juego de puzles de Nintendo DS, donde Mario y Donkey Kong se enfrentan en desafiantes niveles.', 39.99, 'AVENTURA');
+INSERT INTO videogame (name, description, prize, category) VALUES ('Senua\'s Saga: Hellblade II', 'Secuela del aclamado juego de acción y aventura, profundizando en la historia de Senua en un mundo mitológico.', 69.99, 'AVENTURA');
+INSERT INTO videogame (name, description, prize, category) VALUES ('Dragon\'s Dogma 2', 'Juego de rol de acción que ofrece un mundo abierto y dinámico, con combates intensos y una historia envolvente.', 59.99, 'ACCION');
+INSERT INTO videogame (name, description, prize, category) VALUES ('Elden Ring: Shadow of the Erdtree', 'Expansión del exitoso juego de rol de acción, que introduce nuevas áreas, enemigos y mecánicas de juego.', 39.99, 'ACCION');
