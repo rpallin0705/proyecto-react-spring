@@ -1,5 +1,6 @@
 package com.example.proyectoapirest.backend.infraestrucutre.adapter.repository;
 
+import com.example.proyectoapirest.backend.domain.model.VGCategory;
 import com.example.proyectoapirest.backend.domain.model.VideoGame;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
@@ -21,6 +22,9 @@ public class VideoGameEntity {
     @Column(nullable = false)
     private double prize;
 
+    @Enumerated(EnumType.STRING)
+    private VGCategory category;
+
     public VideoGameEntity() {
     }
 
@@ -32,6 +36,6 @@ public class VideoGameEntity {
     }
 
     public VideoGame toDomainModel() {
-        return new VideoGame(id, name, description, prize);
+        return new VideoGame(id, name, description, prize, category);
     }
 }

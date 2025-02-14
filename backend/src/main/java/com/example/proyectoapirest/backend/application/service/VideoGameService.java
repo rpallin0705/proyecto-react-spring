@@ -1,27 +1,27 @@
 package com.example.proyectoapirest.backend.application.service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.proyectoapirest.backend.application.mapper.VideoGameMapper;
+import com.example.proyectoapirest.backend.application.usecase.*;
+import com.example.proyectoapirest.backend.domain.model.VGCategory;
 import org.springframework.stereotype.Service;
 
 import com.example.proyectoapirest.backend.application.dto.CreateVideoGameDTO;
 import com.example.proyectoapirest.backend.application.dto.VideoGameDTO;
-import com.example.proyectoapirest.backend.application.usecase.CreateVideoGameUseCase;
-import com.example.proyectoapirest.backend.application.usecase.GetVideoGameByNameUseCase;
-import com.example.proyectoapirest.backend.application.usecase.ListVideoGamesUseCase;
-import com.example.proyectoapirest.backend.application.usecase.UpdateVideoGameUseCase;
-import com.example.proyectoapirest.backend.application.usecase.DeleteVideoGameUseCase;
 import com.example.proyectoapirest.backend.domain.model.VideoGame;
 import com.example.proyectoapirest.backend.domain.repository.VideoGameRepository;
 
 @Service
-public class VideoGameService
-        implements CreateVideoGameUseCase,
+public class VideoGameService implements
+        CreateVideoGameUseCase,
         GetVideoGameByNameUseCase,
         ListVideoGamesUseCase,
         UpdateVideoGameUseCase,
-        DeleteVideoGameUseCase {  // 🔥 Ahora implementa la interfaz Delete
+        DeleteVideoGameUseCase,
+        GetVideoGameCategories {
 
     private final VideoGameRepository videoGameRepository;
 
@@ -35,14 +35,8 @@ public class VideoGameService
             return Optional.empty();
         }
 
-        VideoGame videoGame = new VideoGame(newVideoGameDTO);
-        VideoGame savedVideoGame = videoGameRepository.save(videoGame);
-
-        return Optional.of(new VideoGameDTO(
-                savedVideoGame.getId(),
-                savedVideoGame.getName(),
-                savedVideoGame.getDescription(),
-                savedVideoGame.getPrize()));
+        VideoGame savedVideoGame = videoGameRepository.save(VideoGameMapper.fromCreateDTO(newVideoGameDTO));
+        return Optional.of(VideoGameMapper.toDTO(savedVideoGame));
     }
 
     @Override
@@ -53,39 +47,34 @@ public class VideoGameService
                             updatedVideoGameDTO.name(),
                             updatedVideoGameDTO.description(),
                             updatedVideoGameDTO.prize());
-                    videoGameRepository.save(videoGame);
-                    return new VideoGameDTO(videoGame.getId(), videoGame.getName(),
-                            videoGame.getDescription(), videoGame.getPrize());
+                    return VideoGameMapper.toDTO(videoGameRepository.save(videoGame));
                 });
     }
 
     @Override
     public List<VideoGameDTO> list() {
-        return videoGameRepository.findAll().stream()
-                .map(videoGame -> new VideoGameDTO(
-                        videoGame.getId(),
-                        videoGame.getName(),
-                        videoGame.getDescription(),
-                        videoGame.getPrize()))
-                .toList();
+        return VideoGameMapper.toDTOList(videoGameRepository.findAll());
     }
 
     @Override
     public Optional<VideoGameDTO> getByName(String name) {
         return videoGameRepository.findByName(name)
-                .map(videoGame -> new VideoGameDTO(
-                        videoGame.getId(),
-                        videoGame.getName(),
-                        videoGame.getDescription(),
-                        videoGame.getPrize()));
+                .map(VideoGameMapper::toDTO);
     }
 
     @Override
     public boolean delete(Long id) {
-        if (videoGameRepository.findById(id).isPresent()) {
-            videoGameRepository.deleteById(id);
-            return true;
-        }
-        return false;
+        return videoGameRepository.findById(id)
+                .map(videoGame -> {
+                    videoGameRepository.deleteById(id);
+                    return true;
+                }).orElse(false);
+    }
+
+    @Override
+    public List<String> getVideoGamesCategories() {
+        return Arrays.stream(VGCategory.values())
+                .map(Enum::name)
+                .toList();
     }
 }
