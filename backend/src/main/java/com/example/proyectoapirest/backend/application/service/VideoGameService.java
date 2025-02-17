@@ -46,7 +46,7 @@ public class VideoGameService implements
                     videoGame.updateInfo(
                             updatedVideoGameDTO.name(),
                             updatedVideoGameDTO.description(),
-                            updatedVideoGameDTO.prize());
+                            updatedVideoGameDTO.price());
                     return VideoGameMapper.toDTO(videoGameRepository.save(videoGame));
                 });
     }

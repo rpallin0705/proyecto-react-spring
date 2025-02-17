@@ -4,5 +4,6 @@ export class VideoGame {
         public name: string,
         public description: string,
         public price: number,
+        public category: string,
     ) { }
 }

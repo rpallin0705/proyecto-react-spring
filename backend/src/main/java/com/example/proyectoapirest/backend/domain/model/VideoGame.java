@@ -21,20 +21,20 @@ public class VideoGame {
     private Long id;
     private String name;
     private String description;
-    private double prize;
+    private double price;
     private VGCategory category;
 
     public VideoGame(CreateVideoGameDTO newVideoGameDTO) {
         this.id = null;
         this.name = newVideoGameDTO.name();
         this.description = newVideoGameDTO.description();
-        this.prize = newVideoGameDTO.prize();
+        this.price = newVideoGameDTO.price();
     }
 
-    public void updateInfo(String name, String description, double prize) {
+    public void updateInfo(String name, String description, double price) {
         this.name = name;
         this.description = description;
-        this.prize = prize;
+        this.price = price;
     }
 
 }

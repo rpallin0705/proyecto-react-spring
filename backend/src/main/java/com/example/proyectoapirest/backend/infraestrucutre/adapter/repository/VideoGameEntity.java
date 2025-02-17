@@ -20,7 +20,7 @@ public class VideoGameEntity {
     private String description;
 
     @Column(nullable = false)
-    private double prize;
+    private double price;
 
     @Enumerated(EnumType.STRING)
     private VGCategory category;
@@ -32,10 +32,10 @@ public class VideoGameEntity {
         this.id = videoGame.getId();
         this.name = videoGame.getName();
         this.description = videoGame.getDescription();
-        this.prize = videoGame.getPrize();
+        this.price = videoGame.getPrice();
     }
 
     public VideoGame toDomainModel() {
-        return new VideoGame(id, name, description, prize, category);
+        return new VideoGame(id, name, description, price, category);
     }
 }

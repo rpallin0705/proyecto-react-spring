@@ -1,43 +1,100 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.root-layout {
+  height: 100vh;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  height: 100%;
+  min-width: 100vw;
+  min-height: 100vh;
+  line-height: 1.6;
+  background-color: #161616;
+  color: #00ffff;
+}
+
+footer {
+  color: white;
   text-align: center;
+  padding: 10px;
+  margin-top: 200px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-  
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+header {
+  padding: 10px 20px;
+  background-image: linear-gradient(to bottom, #00ffff36, rgba(0, 255, 255, 0));
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header {
+  position: sticky;
+  display: flex;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+header img {
+  width: 50px;
+  margin-right: 15px;
 }
 
-.card {
-  padding: 2em;
+header h1 {
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: "Arial", sans-serif;
 }
 
-.read-the-docs {
-  color: #888;
+header li {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  margin-right: 300px;
+}
+
+.categories-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.categories-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background-image: linear-gradient(to bottom, #00ffff1a, rgba(0, 255, 255, 0));
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan cuando se acabe el espacio */
+  gap: 10px; /* Espacio entre los elementos */
+}
+
+.category {
+  cursor: pointer;
+  font-size: 0.6em;
+  flex: 1 1 30%;
+  color: white; /* Los elementos ocuparán aproximadamente el 30% del ancho del contenedor */
+  min-width: 30px; /* Para evitar que los elementos se vuelvan demasiado pequeños */
+  text-align: center;
+  border-radius: 5px;
 }
