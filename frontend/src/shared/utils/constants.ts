@@ -1,7 +1,8 @@
 export const API_BASE_URL = "http://localhost:8080"
 
 export const ENDPOINTS = {
-    VIDEOGAMES : '/videogames'
+    VIDEOGAMES : '/videogames',
+    VIDEOGAMES_CATEGORIES : '/videogames/categories'
 }
 
 export const ERROR_MESSAGES = {

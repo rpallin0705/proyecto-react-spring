@@ -12,6 +12,6 @@ export const fetchVideoGamesByName = async (name : string) => {
 }
 
 export const fetchVideoGamesCategories = async () => {
-    const response = await api.get(`${ENDPOINTS.VIDEOGAMES}/categories`)
+    const response = await api.get(ENDPOINTS.VIDEOGAMES_CATEGORIES)
     return response.data
 }
