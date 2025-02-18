@@ -1,7 +1,8 @@
 footer {
+  width: 100%;
   color: white;
   text-align: center;
-  padding: 10px;
+  background-image: linear-gradient(to top, #00ffff36, rgba(0, 255, 255, 0));
 }
 
 header {
@@ -20,14 +21,10 @@ header h1 {
   font-family: "Arial", sans-serif;
 }
 
-header li {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
 .header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row: 1fr;
   align-items: center;
 }
 
@@ -43,7 +40,6 @@ header li {
 .headerLogo {
   display: flex;
   align-items: center;
-  margin-right: 300px;
 }
 
 .categoriesContainer {
@@ -53,6 +49,8 @@ header li {
 }
 
 .categoriesNav {
+  padding: 0 30px; 
+  margin-top: 30px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -61,6 +59,11 @@ header li {
   justify-content: center;
   border-radius: 20px;
   background-image: linear-gradient(to bottom, #00ffff1a, rgba(0, 255, 255, 0));
+  transition: all 1s;
+}
+
+.categoriesNav:hover{
+  scale: 1.2;
 }
 
 .container {
@@ -70,11 +73,15 @@ header li {
 }
 
 .category {
-  cursor: pointer;
+  list-style: none;
   font-size: 0.6em;
   flex: 1 1 30%;
   color: white;
-  min-width: 30px;
+  width: fit-content;
   text-align: center;
   border-radius: 5px;
+}
+
+li span{
+  cursor: pointer;
 }
