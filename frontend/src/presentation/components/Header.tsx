@@ -11,9 +11,6 @@ export const Header = () => {
     };
 
     return (
-        //todo hacer header añadiendo la propiedad sticky al header y  envolviendo todo en un contenedor
-        //todo hacer el el root layout ocupe todo el body y el footer esté siempre abajo
-        // todo porque la imagen ahora no se ve
         <header className={styles.header}>
             <div className={styles.headerLogo}>
                 <img className="headerImg" src="./logo.png" alt="Logo" />
@@ -30,7 +27,5 @@ export const Header = () => {
                 </nav>
             </div>
         </header>
-
-
     );
 };

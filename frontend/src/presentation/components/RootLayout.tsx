@@ -6,7 +6,7 @@ export const RootLayout = () => {
     return (
         <div className={styles.rootLayout}>
             <Header />
-            <div>
+            <div className={styles.content}>
                 <Outlet />
             </div>
             <footer>
