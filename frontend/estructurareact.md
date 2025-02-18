@@ -81,7 +81,7 @@ my-app/
     │   │   ├── User.ts                 // Entidad de dominio User
     │   └── usecases/
     │       ├── GetVideoGames.ts        // Caso de uso para obtener videojuegos
-    │       ├── GetUsers.ts             // Caso de uso para obtener usuarios
+    │       ├── GetUsers.ts             // Caso de uso para obtener **usuarios**
     ├── presentation/
     │   ├── components/
     │   │   ├── VideoGameCard.tsx       // Componente para mostrar un videojuego

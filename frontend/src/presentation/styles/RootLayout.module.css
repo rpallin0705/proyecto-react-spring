@@ -33,19 +33,19 @@ header li {
   cursor: pointer;
 }
 
-.header-logo {
+.headerLogo {
   display: flex;
   align-items: center;
   margin-right: 300px;
 }
 
-.categories-container {
+.categoriesContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.categories-nav {
+.categoriesNav {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
