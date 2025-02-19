@@ -7,7 +7,7 @@ type VideoGameDialogProps = {
     onClose: () => void
 }
 
-const VideoGameDialog = ({ game, onClose } : VideoGameDialogProps) => {
+const VideoGameDialog : React.FC<VideoGameDialogProps> = ({ game, onClose } : VideoGameDialogProps) => {
   if (!game) return null; 
 
   return (
