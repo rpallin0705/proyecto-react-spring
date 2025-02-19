@@ -9,8 +9,7 @@ export const appRouter = createBrowserRouter([
         children: [
             // Ruta para /video-games o la raíz / que es equivalente
             {
-                index: true,
-                path: "video-games/:category?",  // category es opcional
+                path: "video-games/:category?", 
                 element: <VideoGameListPage />,
             },
             {

@@ -1,4 +1,3 @@
-/* ROOT LAYOUT */
 .rootLayout {
   width: 100%;
   height: 100vh;
@@ -8,7 +7,6 @@
   place-items: center;
 }
 
-/* HEADER */
 header {
   width: 100%;
   background-image: linear-gradient(to bottom, #00ffff36, rgba(0, 255, 255, 0));
@@ -20,15 +18,19 @@ header {
   align-items: center;
 }
 
-/* HEADER LOGO */
 .headerLogo {
   display: flex;
   align-items: center;
 }
 
-header img {
+.headerImg {
   width: 50px;
   margin-right: 15px;
+}
+.headerTitleImg {
+  width: 120px;
+  height: 55px;
+  margin-left: 25px;
 }
 
 header h1 {
@@ -37,7 +39,6 @@ header h1 {
   font-family: "Arial", sans-serif;
 }
 
-/* CATEGORIES */
 .categoriesContainer {
   display: flex;
   flex-direction: column;
@@ -60,7 +61,6 @@ header h1 {
   scale: 1.5;
 }
 
-/* CATEGORY */
 .category {
   list-style: none;
   font-size: 0.6em;
@@ -77,10 +77,10 @@ li span {
 
 .content {
   width: 100%;
+  height: 100%;
+  align-self: center;
 }
 
-
-/* FOOTER */
 footer {
   width: 100%;
   color: white;

@@ -13,8 +13,8 @@ export const Header = () => {
     return (
         <header className={styles.header}>
             <div className={styles.headerLogo}>
-                <img className="headerImg" src="./logo.png" alt="Logo" />
-                <h1>Gamer Vault</h1>
+                {/* <img className={styles.headerImg} src="./logo.png" alt="Logo" /> */}
+                <img className={styles.headerTitleImg} src="./title.png" alt="Logo" />
             </div>
             <div className={styles.categoriesContainer}>
                 <h2>Categories</h2>
