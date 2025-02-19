@@ -10,7 +10,6 @@ const VideoGameListPage = () => {
     const navigate = useNavigate()
 
     return (
-
         <div className={styles.videoGamesContainer}>
             {category &&
                 <div className={styles.categoryInfo}>
