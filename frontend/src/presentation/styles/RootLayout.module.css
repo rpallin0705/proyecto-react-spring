@@ -3,7 +3,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 9% auto 75px;
+  grid-template-rows: max-content auto 75px;
   place-items: center;
 }
 
