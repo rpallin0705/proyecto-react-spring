@@ -13,7 +13,7 @@ export class VideoGameRepository {
         return new VideoGame(dto.id, dto.name, dto.description, dto.price, dto.category)
     }
 
-    static async getCategories() : Promise<String[]> {
+    static async getCategories() : Promise<string[]> {
         return  await fetchVideoGamesCategories()
     }
 }

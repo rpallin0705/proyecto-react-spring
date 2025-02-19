@@ -6,7 +6,7 @@ import { GetVideoGameByName } from "../../domain/usecase/GetVideoGamesByName"
 
 export const useVideoGames = () => {
     const [videoGames, setVideoGames] = useState<VideoGame[]>([])
-    const [categories, setCategories] = useState<String[]>([])
+    const [categories, setCategories] = useState<string[]>([])
     const [selectedGame, setSelectedGame] = useState<VideoGame | null>(null)
 
     useEffect(() => {
