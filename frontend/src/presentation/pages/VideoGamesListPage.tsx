@@ -1,17 +1,22 @@
 import styles from "../styles/VideoGameList.module.css";
 import { useVideoGames } from "../hooks/useVideoGame";
 import { useNavigate, useParams } from "react-router-dom";
-import React, { FunctionComponent, useState } from "react";
+import React, { useState } from "react";
 import { VideoGame } from "../../domain/entities/VideoGame";
 import VideoGameDialog from "../dialog/VideoGameDialog";
 import VideoGameCard from "../components/VideoGameCard";
 
-const VideoGameListPage : React.FC<FunctionComponent> = () => {
+const VideoGameListPage: React.FC = () => {
     const { category } = useParams();
-    const { videoGames } = useVideoGames();
+    const { videoGames, deleteVideoGame } = useVideoGames();
     const navigate = useNavigate();
 
     const [selectedGame, setSelectedGame] = useState<VideoGame | null>(null);
+
+    const handleDelete = async (id: number): Promise<boolean> => {
+        const success = await deleteVideoGame(id);
+        return success;
+    };
 
     return (
         <div className={styles.videoGamesContainer}>
@@ -25,9 +30,9 @@ const VideoGameListPage : React.FC<FunctionComponent> = () => {
             <div className={styles.videoGames}>
                 {(category?.length === undefined ? videoGames : videoGames.filter(game => game.category === category))
                     .map(game => (
-                        <div 
-                            key={game.id} 
-                            className={styles.videoGame} 
+                        <div
+                            key={game.id}
+                            className={styles.videoGame}
                             onClick={() => setSelectedGame(game)}
                         >
                             <VideoGameCard videoGame={game} />
@@ -35,8 +40,11 @@ const VideoGameListPage : React.FC<FunctionComponent> = () => {
                     ))}
             </div>
 
-            
-            <VideoGameDialog game={selectedGame} onClose={() => setSelectedGame(null)} />
+            <VideoGameDialog
+                game={selectedGame}
+                onClose={() => setSelectedGame(null)}
+                onDelete={handleDelete}
+            />
         </div>
     );
 };

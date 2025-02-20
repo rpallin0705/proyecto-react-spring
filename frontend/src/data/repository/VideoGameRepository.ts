@@ -1,5 +1,5 @@
 import { VideoGame } from "../../domain/entities/VideoGame";
-import { fetchVideoGames, fetchVideoGamesByName, fetchVideoGamesCategories } from "../api/VideoGamesApi";
+import { fetchVideoGames, fetchVideoGamesByName, fetchVideoGamesCategories, deleteVideoGameById } from "../api/VideoGamesApi";
 import { VideoGameDTO } from "../dto/VideoGameDTO";
 
 export class VideoGameRepository {
@@ -16,4 +16,8 @@ export class VideoGameRepository {
     static async getCategories() : Promise<string[]> {
         return  await fetchVideoGamesCategories()
     }
+
+    static async deleteById(id: number): Promise<boolean> {
+        return await deleteVideoGameById(id); 
+    } 
 }
