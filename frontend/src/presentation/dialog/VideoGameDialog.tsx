@@ -42,10 +42,10 @@ const VideoGameDialog: React.FC<VideoGameDialogProps> = ({ game, onClose, onDele
             <div
               className={styles.dialogHeader}
               style={{
-                backgroundImage: "url('https://gaming-cdn.com/img/products/16809/pcover/1920x620/16809.jpg?v=1715614171')",
+                backgroundImage: `url('${game.urlCoverImage}')`,
               }}
             >
-              <img src="https://gaming-cdn.com/images/products/16809/616x353/call-of-duty-2026-pc-juego-cover.jpg?v=1715614171" />
+              <img src={game.urlImage} />
               <div className={styles.gameInfo}>
                 <h3>{game.name}</h3>
                 <p>${game.price}</p>

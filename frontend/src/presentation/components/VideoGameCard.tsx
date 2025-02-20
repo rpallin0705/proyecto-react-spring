@@ -6,9 +6,12 @@ type VideoGameCardProps = {
 };
 
 const VideoGameCard = ({ videoGame }: VideoGameCardProps) => {
+
+    console.log(videoGame)
+
     return (
         <div className={styles.videogameCard}>
-            <img src="https://gaming-cdn.com/images/products/16809/616x353/call-of-duty-2026-pc-juego-cover.jpg?v=1715614171" 
+            <img src={videoGame.urlImage}
                 alt={videoGame.name} 
                 className={styles.videogameImage} />
             <div className={styles.videogameInfo}>

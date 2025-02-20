@@ -14,7 +14,9 @@ public class VideoGameMapper {
                 videoGame.getName(),
                 videoGame.getDescription(),
                 videoGame.getPrice(),
-                videoGame.getCategory()
+                videoGame.getCategory(),
+                videoGame.getVgImage(),
+                videoGame.getVgCoverImage()
         );
     }
 
