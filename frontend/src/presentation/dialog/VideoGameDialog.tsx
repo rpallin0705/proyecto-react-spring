@@ -26,11 +26,13 @@ const VideoGameDialog: React.FC<VideoGameDialogProps> = ({ game, onClose }: Vide
           </div>
         </div>
         <div className={styles.content}>
-
           <p>{game.description}</p>
           <p>{game.category}</p>
-
-          <button onClick={onClose}>Cerrar</button>
+          <p> playSTation</p>
+          <div className={styles.contentButton}>
+            <button onClick={onClose}>Cerrar</button>
+            <button onClick={onClose}>Borrar</button>
+          </div>
         </div>
       </div>
 
