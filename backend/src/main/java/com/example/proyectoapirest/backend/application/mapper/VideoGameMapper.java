@@ -13,8 +13,10 @@ public class VideoGameMapper {
                 videoGame.getId(),
                 videoGame.getName(),
                 videoGame.getDescription(),
-                videoGame.getPrize(),
-                videoGame.getCategory()
+                videoGame.getPrice(),
+                videoGame.getCategory(),
+                videoGame.getVgImage(),
+                videoGame.getVgCoverImage()
         );
     }
 

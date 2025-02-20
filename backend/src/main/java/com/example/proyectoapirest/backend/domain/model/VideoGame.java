@@ -7,6 +7,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,20 +22,22 @@ public class VideoGame {
     private Long id;
     private String name;
     private String description;
-    private double prize;
+    private double price;
     private VGCategory category;
+    private String vgImage;
+    private String vgCoverImage;
 
     public VideoGame(CreateVideoGameDTO newVideoGameDTO) {
         this.id = null;
         this.name = newVideoGameDTO.name();
         this.description = newVideoGameDTO.description();
-        this.prize = newVideoGameDTO.prize();
+        this.price = newVideoGameDTO.price();
     }
 
-    public void updateInfo(String name, String description, double prize) {
+    public void updateInfo(String name, String description, double price) {
         this.name = name;
         this.description = description;
-        this.prize = prize;
+        this.price = price;
     }
 
 }

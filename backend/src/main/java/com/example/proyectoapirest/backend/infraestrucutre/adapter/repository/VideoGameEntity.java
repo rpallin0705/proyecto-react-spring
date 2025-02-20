@@ -16,14 +16,20 @@ public class VideoGameEntity {
     @Column(nullable = false, length = 50, unique = true)
     private String name;
 
-    @Size(max = 500)
+    @Column(nullable = false)
     private String description;
 
     @Column(nullable = false)
-    private double prize;
+    private double price;
 
     @Enumerated(EnumType.STRING)
     private VGCategory category;
+    
+    @Size(max = 500)
+    private String urlImage;
+
+    @Size(max = 500)
+    private String urlCoverImage;
 
     public VideoGameEntity() {
     }
@@ -32,10 +38,10 @@ public class VideoGameEntity {
         this.id = videoGame.getId();
         this.name = videoGame.getName();
         this.description = videoGame.getDescription();
-        this.prize = videoGame.getPrize();
+        this.price = videoGame.getPrice();
     }
 
     public VideoGame toDomainModel() {
-        return new VideoGame(id, name, description, prize, category);
+        return new VideoGame(id, name, description, price, category, urlImage, urlCoverImage);
     }
 }
