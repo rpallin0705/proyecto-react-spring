@@ -18,3 +18,9 @@ INSERT INTO videogame (name, description, price, category, url_cover_image, url_
 INSERT INTO videogame (name, description, price, category, url_cover_image, url_image) VALUES ('Senua\'s Saga: Hellblade II', 'Secuela del aclamado juego de acción y aventura, profundizando en la historia de Senua en un mundo mitológico.', 69.99, 'AVENTURA', 'https://gaming-cdn.com/images/products/5954/616x353/senua-s-saga-hellblade-ii-pc-juego-steam-cover.jpg?v=1717577712', 'https://gaming-cdn.com/img/products/5954/pcover/700x300/5954.jpg?v=1717577712');
 INSERT INTO videogame (name, description, price, category, url_cover_image, url_image) VALUES ('Dragon\'s Dogma 2', 'Juego de rol de acción que ofrece un mundo abierto y dinámico, con combates intensos y una historia envolvente.', 59.99, 'ACCION', 'https://gaming-cdn.com/images/products/7911/616x353/dragon-s-dogma-2-pc-juego-steam-europe-cover.jpg?v=1711626178', 'https://gaming-cdn.com/img/products/7911/pcover/700x300/7911.jpg?v=1711626178');
 INSERT INTO videogame (name, description, price, category, url_cover_image, url_image) VALUES ('Elden Ring: Shadow of the Erdtree', 'Expansión del exitoso juego de rol de acción, que introduce nuevas áreas, enemigos y mecánicas de juego.', 39.99, 'ACCION', 'https://gaming-cdn.com/images/products/13652/616x353/elden-ring-shadow-of-the-erdtree-pc-juego-steam-europe-cover.jpg?v=1718975158', 'https://gaming-cdn.com/img/products/4824/pcover/700x300/4824.jpg?v=1734078514');
+
+INSERT INTO platform (name) VALUES ('PC');
+INSERT INTO platform (name) VALUES ('XBOX');
+INSERT INTO platform (name) VALUES ('SWITCH');
+INSERT INTO platform (name) VALUES ('PS5');
+INSERT INTO platform (name) VALUES ('PS4');

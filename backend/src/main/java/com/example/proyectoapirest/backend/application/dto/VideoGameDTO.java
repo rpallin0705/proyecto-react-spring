@@ -13,3 +13,4 @@ public record VideoGameDTO(
                 String vgImage,
                 String vgCoverImage) {
 }
+

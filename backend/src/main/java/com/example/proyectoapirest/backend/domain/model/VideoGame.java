@@ -1,5 +1,7 @@
 package com.example.proyectoapirest.backend.domain.model;
 
+import java.util.List;
+
 import com.example.proyectoapirest.backend.application.dto.CreateVideoGameDTO;
 import com.example.proyectoapirest.backend.application.dto.VideoGameDTO;
 
@@ -8,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +29,7 @@ public class VideoGame {
     private VGCategory category;
     private String vgImage;
     private String vgCoverImage;
+    private List<VideoGamePlatform> videoGamePlatforms;
 
     public VideoGame(CreateVideoGameDTO newVideoGameDTO) {
         this.id = null;
@@ -38,6 +42,11 @@ public class VideoGame {
         this.name = name;
         this.description = description;
         this.price = price;
+    }
+
+    public VideoGame(Long id2, String name2, String description2, double price2, VGCategory category2,
+            String urlImage, String urlCoverImage) {
+        //TODO Auto-generated constructor stub
     }
 
 }

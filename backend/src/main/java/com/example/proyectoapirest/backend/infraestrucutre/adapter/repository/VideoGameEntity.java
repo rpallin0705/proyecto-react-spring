@@ -1,5 +1,7 @@
 package com.example.proyectoapirest.backend.infraestrucutre.adapter.repository;
 
+import java.util.List;
+
 import com.example.proyectoapirest.backend.domain.model.VGCategory;
 import com.example.proyectoapirest.backend.domain.model.VideoGame;
 import jakarta.persistence.*;
@@ -24,15 +26,17 @@ public class VideoGameEntity {
 
     @Enumerated(EnumType.STRING)
     private VGCategory category;
-    
+
     @Size(max = 500)
     private String urlImage;
 
     @Size(max = 500)
     private String urlCoverImage;
 
-    public VideoGameEntity() {
-    }
+    @OneToMany(mappedBy = "videogame", cascade = CascadeType.ALL)
+    private List<VideoGamePlatformEntity> videoGamePlatforms;
+
+    public VideoGameEntity() {}
 
     public VideoGameEntity(VideoGame videoGame) {
         this.id = videoGame.getId();
