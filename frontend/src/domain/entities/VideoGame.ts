@@ -5,5 +5,7 @@ export class VideoGame {
         public description: string,
         public price: number,
         public category: string,
+        public urlImage: string,
+        public urlCoverImage: string,
     ) { }
 }
