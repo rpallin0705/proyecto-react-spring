@@ -1,9 +1,10 @@
 package com.example.proyectoapirest.backend.infraestrucutre.adapter.controller;
 
-import com.example.proyectoapirest.backend.application.dto.CreateVideoGameDTO;
-import com.example.proyectoapirest.backend.application.dto.VideoGameDTO;
 import com.example.proyectoapirest.backend.application.service.VideoGamePlatformService;
 import com.example.proyectoapirest.backend.application.service.VideoGameService;
+import com.example.proyectoapirest.backend.shared.dto.CreateVideoGameDTO;
+import com.example.proyectoapirest.backend.shared.dto.VideoGameDTO;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

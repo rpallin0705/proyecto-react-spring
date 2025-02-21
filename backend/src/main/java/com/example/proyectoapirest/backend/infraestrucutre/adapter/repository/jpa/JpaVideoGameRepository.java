@@ -1,4 +1,4 @@
-package com.example.proyectoapirest.backend.infraestrucutre.adapter.repository;
+package com.example.proyectoapirest.backend.infraestrucutre.adapter.repository.jpa;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.stereotype.Repository;
 import com.example.proyectoapirest.backend.domain.model.VideoGame;
 import com.example.proyectoapirest.backend.domain.repository.VideoGameRepository;
+import com.example.proyectoapirest.backend.infraestrucutre.adapter.repository.entity.VideoGameEntity;
+import com.example.proyectoapirest.backend.infraestrucutre.adapter.repository.springdata.SpringDataVideoGameRepository;
 
 @Repository
 public class JpaVideoGameRepository implements VideoGameRepository {

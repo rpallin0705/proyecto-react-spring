@@ -1,4 +1,4 @@
-package com.example.proyectoapirest.backend.infraestrucutre.adapter.repository;
+package com.example.proyectoapirest.backend.infraestrucutre.adapter.repository.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

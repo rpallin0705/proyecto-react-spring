@@ -1,8 +1,8 @@
 package com.example.proyectoapirest.backend.application.mapper;
 
-import com.example.proyectoapirest.backend.application.dto.CreateVideoGameDTO;
-import com.example.proyectoapirest.backend.application.dto.VideoGameDTO;
 import com.example.proyectoapirest.backend.domain.model.VideoGame;
+import com.example.proyectoapirest.backend.shared.dto.CreateVideoGameDTO;
+import com.example.proyectoapirest.backend.shared.dto.VideoGameDTO;
 
 import java.util.List;
 

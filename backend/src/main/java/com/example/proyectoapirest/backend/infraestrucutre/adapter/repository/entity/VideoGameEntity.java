@@ -1,9 +1,10 @@
-package com.example.proyectoapirest.backend.infraestrucutre.adapter.repository;
+package com.example.proyectoapirest.backend.infraestrucutre.adapter.repository.entity;
 
 import java.util.List;
 
 import com.example.proyectoapirest.backend.domain.model.VGCategory;
 import com.example.proyectoapirest.backend.domain.model.VideoGame;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 

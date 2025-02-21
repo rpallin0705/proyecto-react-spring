@@ -2,7 +2,7 @@ package com.example.proyectoapirest.backend.domain.model;
 
 import java.util.List;
 
-import com.example.proyectoapirest.backend.application.dto.CreateVideoGameDTO;
+import com.example.proyectoapirest.backend.shared.dto.CreateVideoGameDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

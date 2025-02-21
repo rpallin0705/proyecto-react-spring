@@ -1,7 +1,6 @@
-package com.example.proyectoapirest.backend.infraestrucutre.adapter.repository;
+package com.example.proyectoapirest.backend.infraestrucutre.adapter.repository.entity;
 
 import java.util.List;
-
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

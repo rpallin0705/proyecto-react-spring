@@ -1,4 +1,4 @@
-package com.example.proyectoapirest.backend.application.dto;
+package com.example.proyectoapirest.backend.shared.dto;
 
 import com.example.proyectoapirest.backend.domain.model.VGCategory;
 

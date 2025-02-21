@@ -1,4 +1,4 @@
-package com.example.proyectoapirest.backend.application.dto;
+package com.example.proyectoapirest.backend.shared.dto;
 
 public record VideoGamePlatformDTO(
         Long id,

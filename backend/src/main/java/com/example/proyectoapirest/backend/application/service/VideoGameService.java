@@ -9,10 +9,10 @@ import com.example.proyectoapirest.backend.application.usecase.*;
 import com.example.proyectoapirest.backend.domain.model.VGCategory;
 import org.springframework.stereotype.Service;
 
-import com.example.proyectoapirest.backend.application.dto.CreateVideoGameDTO;
-import com.example.proyectoapirest.backend.application.dto.VideoGameDTO;
 import com.example.proyectoapirest.backend.domain.model.VideoGame;
 import com.example.proyectoapirest.backend.domain.repository.VideoGameRepository;
+import com.example.proyectoapirest.backend.shared.dto.CreateVideoGameDTO;
+import com.example.proyectoapirest.backend.shared.dto.VideoGameDTO;
 
 @Service
 public class VideoGameService implements
