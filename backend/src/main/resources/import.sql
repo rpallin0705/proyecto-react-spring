@@ -24,3 +24,89 @@ INSERT INTO platform (name) VALUES ('XBOX');
 INSERT INTO platform (name) VALUES ('SWITCH');
 INSERT INTO platform (name) VALUES ('PS5');
 INSERT INTO platform (name) VALUES ('PS4');
+
+-- Black Myth: Wukong (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (1, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (1, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (1, 4);
+
+-- Dragon Ball Sparking! Zero (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (2, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (2, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (2, 4);
+
+-- Super Mario Bros. Wonder (Switch)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (3, 3);
+
+-- The Legend of Zelda: Echoes of Wisdom (Switch)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (4, 3);
+
+-- EA Sports FC 25 (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (5, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (5, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (5, 4);
+
+-- Nintendo Switch Sports (Switch)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (6, 3);
+
+-- Age of Mythology Retold (PC)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (7, 1);
+
+-- Two Point Museum (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (8, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (8, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (8, 4);
+
+-- Silent Hill 2 (PC, PS5)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (9, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (9, 4);
+
+-- Resident Evil 4 Remake (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (10, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (10, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (10, 4);
+
+-- Frostpunk 2 (PC)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (11, 1);
+
+-- F1 24 (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (12, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (12, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (12, 4);
+
+-- Indiana Jones y el Gran Círculo (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (13, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (13, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (13, 4);
+
+-- Animal Well (PC, PS5, Switch)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (14, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (14, 3);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (14, 4);
+
+-- Prince of Persia: The Lost Crown (PC, PS5, Switch)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (15, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (15, 3);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (15, 4);
+
+-- Tekken 8 (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (16, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (16, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (16, 4);
+
+-- Mario vs. Donkey Kong (Switch)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (17, 3);
+
+-- Senua's Saga: Hellblade II (PC, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (18, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (18, 2);
+
+-- Dragon's Dogma 2 (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (19, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (19, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (19, 4);
+
+-- Elden Ring: Shadow of the Erdtree (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (20, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (20, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (20, 4);

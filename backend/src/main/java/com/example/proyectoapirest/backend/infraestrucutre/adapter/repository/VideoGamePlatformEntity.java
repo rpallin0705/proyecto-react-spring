@@ -8,6 +8,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+
 @Entity
 @Table(name = "video_game_platform")
 public class VideoGamePlatformEntity {
@@ -23,5 +24,9 @@ public class VideoGamePlatformEntity {
     @ManyToOne
     @JoinColumn(name = "platform_id")
     private PlatformEntity platform;
+
+    public VideoGameEntity getVideogame() {
+        return this.videogame;
+    }
 
 }

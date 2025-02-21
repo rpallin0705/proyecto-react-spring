@@ -2,21 +2,24 @@ package com.example.proyectoapirest.backend.infraestrucutre.adapter.controller;
 
 import com.example.proyectoapirest.backend.application.dto.CreateVideoGameDTO;
 import com.example.proyectoapirest.backend.application.dto.VideoGameDTO;
+import com.example.proyectoapirest.backend.application.service.VideoGamePlatformService;
 import com.example.proyectoapirest.backend.application.service.VideoGameService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping("/videogames")
 public class VideoGameController {
 
     private final VideoGameService videoGameService;
+    private final VideoGamePlatformService videoGamePlatformService;
 
-    public VideoGameController(VideoGameService videoGameService) {
+    public VideoGameController(VideoGameService videoGameService, VideoGamePlatformService videoGamePlatformService) {
         this.videoGameService = videoGameService;
+        this.videoGamePlatformService = videoGamePlatformService;
     }
 
     @PostMapping
@@ -60,4 +63,11 @@ public class VideoGameController {
                 ? ResponseEntity.ok(categoriesList)
                 : ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/by-platforms/{platformId}")
+    public ResponseEntity<List<Long>> getGamesIdsByPlatform(@PathVariable Long platformId) {
+        List<Long> gameIds = videoGamePlatformService.getGameIds(platformId);
+        return !gameIds.isEmpty() ? ResponseEntity.ok(gameIds) : ResponseEntity.notFound().build();
+    }
+
 }

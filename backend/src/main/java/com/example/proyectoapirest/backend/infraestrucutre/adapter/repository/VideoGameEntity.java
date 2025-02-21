@@ -48,4 +48,10 @@ public class VideoGameEntity {
     public VideoGame toDomainModel() {
         return new VideoGame(id, name, description, price, category, urlImage, urlCoverImage);
     }
+
+
+    public Long getId() {
+        return this.id;
+    }
+ 
 }
