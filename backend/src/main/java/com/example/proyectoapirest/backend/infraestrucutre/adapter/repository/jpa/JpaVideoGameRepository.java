@@ -27,15 +27,13 @@ public class JpaVideoGameRepository implements VideoGameRepository {
 
     @Override
     public Optional<VideoGame> findByName(String name) {
-        return springDataRepo.findByName(name).map(VideoGameEntity::toDomainModel); 
+        return springDataRepo.findByName(name).map(VideoGameEntity::toDomainModel);
     }
 
     @Override
     public List<VideoGame> findAll() {
-    
-        return springDataRepo.findAll().stream()
-                .map(VideoGameMapper::toDomain)
-                .toList();
+        return VideoGameMapper.toDomainList(springDataRepo.findAll());
+                
     }
 
     @Override

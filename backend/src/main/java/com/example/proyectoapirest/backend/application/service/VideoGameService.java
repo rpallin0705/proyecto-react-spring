@@ -56,7 +56,10 @@ public class VideoGameService implements
 
     @Override
     public List<VideoGameDTO> list() {
-        return VideoGameMapper.toDTOList(videoGameRepository.findAll());
+        List<VideoGame> videoGames = videoGameRepository.findAll();
+        return videoGames.stream()
+                .map(VideoGameMapper::toDTO) 
+                .toList();
     }
 
     @Override

@@ -37,7 +37,7 @@ public class VideoGameEntity {
     @Size(max = 500)
     private String urlCoverImage;
 
-    @OneToMany(mappedBy = "videogame", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "videogame", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<VideoGamePlatformEntity> videoGamePlatforms;
 
     public VideoGameEntity() {

@@ -10,10 +10,16 @@ import java.util.List;
 public class VideoGameMapper {
 
     public static VideoGameDTO toDTO(VideoGame videoGame) {
-
         if (videoGame == null) {
             return null;
         }
+
+        // ✅ Extrae solo los IDs de las plataformas
+        List<Long> platformIds = videoGame.getVideoGamePlatforms() != null
+                ? videoGame.getVideoGamePlatforms().stream()
+                        .map(vgp -> vgp.getPlatform().getId())
+                        .toList()
+                : List.of();
 
         return new VideoGameDTO(
                 videoGame.getId(),
@@ -22,7 +28,9 @@ public class VideoGameMapper {
                 videoGame.getPrice(),
                 videoGame.getCategory(),
                 videoGame.getVgImage(),
-                videoGame.getVgCoverImage());
+                videoGame.getVgCoverImage(),
+                platformIds 
+        );
     }
 
     public static VideoGame toDomain(VideoGameEntity entity) {
@@ -36,7 +44,12 @@ public class VideoGameMapper {
                 entity.getPrice(),
                 entity.getCategory(),
                 entity.getUrlImage(),
-                entity.getUrlCoverImage());
+                entity.getUrlCoverImage(),
+                entity.getVideoGamePlatforms() != null
+                        ? entity.getVideoGamePlatforms().stream()
+                                .map(VideoGamePlatformMapper::toDomain)
+                                .toList()
+                        : List.of());
     }
 
     public static VideoGameEntity toEntity(VideoGame videoGame) {
@@ -53,6 +66,12 @@ public class VideoGameMapper {
     public static List<VideoGameDTO> toDTOList(List<VideoGame> videoGames) {
         return videoGames.stream()
                 .map(VideoGameMapper::toDTO)
+                .toList();
+    }
+
+    public static List<VideoGame> toDomainList(List<VideoGameEntity> videoGames) {
+        return videoGames.stream()
+                .map(VideoGameMapper::toDomain)
                 .toList();
     }
 
