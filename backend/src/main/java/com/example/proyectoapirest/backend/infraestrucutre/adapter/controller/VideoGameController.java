@@ -1,8 +1,12 @@
 package com.example.proyectoapirest.backend.infraestrucutre.adapter.controller;
 
+import com.example.proyectoapirest.backend.application.mapper.PlatformMapper;
+import com.example.proyectoapirest.backend.application.service.PlatformService;
 import com.example.proyectoapirest.backend.application.service.VideoGamePlatformService;
 import com.example.proyectoapirest.backend.application.service.VideoGameService;
+import com.example.proyectoapirest.backend.domain.model.Platform;
 import com.example.proyectoapirest.backend.shared.dto.CreateVideoGameDTO;
+import com.example.proyectoapirest.backend.shared.dto.PlatformDTO;
 import com.example.proyectoapirest.backend.shared.dto.VideoGameDTO;
 
 import org.springframework.http.ResponseEntity;
@@ -17,10 +21,15 @@ public class VideoGameController {
 
     private final VideoGameService videoGameService;
     private final VideoGamePlatformService videoGamePlatformService;
+    private final PlatformService platformService;
 
-    public VideoGameController(VideoGameService videoGameService, VideoGamePlatformService videoGamePlatformService) {
+    public VideoGameController(
+            VideoGameService videoGameService,
+            VideoGamePlatformService videoGamePlatformService,
+            PlatformService platformService) {
         this.videoGameService = videoGameService;
         this.videoGamePlatformService = videoGamePlatformService;
+        this.platformService = platformService;
     }
 
     @PostMapping
@@ -71,4 +80,8 @@ public class VideoGameController {
         return !gameIds.isEmpty() ? ResponseEntity.ok(gameIds) : ResponseEntity.notFound().build();
     }
 
+    @GetMapping("/platforms")
+    public ResponseEntity<List<PlatformDTO>> getAllPlatforms() {
+        return ResponseEntity.ok(platformService.getAllPlatforms());
+    }
 }

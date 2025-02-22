@@ -4,13 +4,13 @@ import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@RequiredArgsConstructor
 @AllArgsConstructor
 public class Platform {
-    private Long id;
-    private String name;
+    private final Long id;
+    private final String name;
     private List<VideoGamePlatform> platformVideoGames;
 }

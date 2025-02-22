@@ -10,9 +10,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.Getter;
 
 @Entity
 @Table(name = "platform")
+@Getter
 public class PlatformEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
