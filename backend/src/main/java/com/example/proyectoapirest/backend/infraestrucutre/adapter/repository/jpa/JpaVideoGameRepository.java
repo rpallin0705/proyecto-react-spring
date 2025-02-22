@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
+
+import com.example.proyectoapirest.backend.application.mapper.VideoGameMapper;
 import com.example.proyectoapirest.backend.domain.model.VideoGame;
 import com.example.proyectoapirest.backend.domain.repository.VideoGameRepository;
 import com.example.proyectoapirest.backend.infraestrucutre.adapter.repository.entity.VideoGameEntity;
@@ -30,14 +32,15 @@ public class JpaVideoGameRepository implements VideoGameRepository {
 
     @Override
     public List<VideoGame> findAll() {
+    
         return springDataRepo.findAll().stream()
-                .map(VideoGameEntity::toDomainModel)
+                .map(VideoGameMapper::toDomain)
                 .toList();
     }
 
     @Override
     public VideoGame save(VideoGame videoGame) {
-        VideoGameEntity savedEntity = springDataRepo.save(new VideoGameEntity(videoGame));
+        VideoGameEntity savedEntity = springDataRepo.save(VideoGameMapper.toEntity(videoGame));
         return savedEntity.toDomainModel();
     }
 

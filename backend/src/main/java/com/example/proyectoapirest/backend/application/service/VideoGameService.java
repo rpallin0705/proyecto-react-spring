@@ -14,7 +14,10 @@ import com.example.proyectoapirest.backend.domain.repository.VideoGameRepository
 import com.example.proyectoapirest.backend.shared.dto.CreateVideoGameDTO;
 import com.example.proyectoapirest.backend.shared.dto.VideoGameDTO;
 
+import jakarta.transaction.Transactional;
+
 @Service
+@Transactional
 public class VideoGameService implements
         CreateVideoGameUseCase,
         GetVideoGameByNameUseCase,

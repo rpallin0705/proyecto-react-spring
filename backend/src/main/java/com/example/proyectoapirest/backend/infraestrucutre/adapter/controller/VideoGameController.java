@@ -1,10 +1,8 @@
 package com.example.proyectoapirest.backend.infraestrucutre.adapter.controller;
 
-import com.example.proyectoapirest.backend.application.mapper.PlatformMapper;
 import com.example.proyectoapirest.backend.application.service.PlatformService;
 import com.example.proyectoapirest.backend.application.service.VideoGamePlatformService;
 import com.example.proyectoapirest.backend.application.service.VideoGameService;
-import com.example.proyectoapirest.backend.domain.model.Platform;
 import com.example.proyectoapirest.backend.shared.dto.CreateVideoGameDTO;
 import com.example.proyectoapirest.backend.shared.dto.PlatformDTO;
 import com.example.proyectoapirest.backend.shared.dto.VideoGameDTO;

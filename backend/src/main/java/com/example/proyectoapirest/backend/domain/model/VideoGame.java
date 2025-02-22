@@ -24,6 +24,18 @@ public class VideoGame {
     private String vgCoverImage;
     private List<VideoGamePlatform> videoGamePlatforms;
 
+
+    public VideoGame(Long id, String name, String description, double price, VGCategory category, String vgImage, String vgCoverImage) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.category = category;
+        this.vgImage = vgImage;
+        this.vgCoverImage = vgCoverImage;
+    }
+
+
     public VideoGame(CreateVideoGameDTO newVideoGameDTO) {
         this.id = null;
         this.name = newVideoGameDTO.name();
@@ -37,8 +49,5 @@ public class VideoGame {
         this.price = price;
     }
 
-    public VideoGame(Long id2, String name2, String description2, double price2, VGCategory category2,
-            String urlImage, String urlCoverImage) {
-    }
 
 }
