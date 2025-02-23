@@ -39,12 +39,24 @@ header h1 {
   font-family: "Arial", sans-serif;
 }
 
-.categoriesContainer {
+.headerFilter {
   display: flex;
   flex-direction: column;
+}
+
+.categoriesContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 }
 
+.categoriesContainer nav{
+  cursor: pointer;
+  color: white;
+}
+
+.platformNav,
 .categoriesNav {
   padding: 0 30px;
   display: flex;
@@ -57,7 +69,12 @@ header h1 {
   transition: all 1s;
 }
 
+
 .categoriesNav:hover {
+  scale: 1.5;
+}
+
+.platformNav:hover {
   scale: 1.5;
 }
 

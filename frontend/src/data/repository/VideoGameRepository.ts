@@ -1,3 +1,4 @@
+import { Platform } from "../../domain/entities/Platform";
 import { VideoGame } from "../../domain/entities/VideoGame";
 import { fetchVideoGames, fetchVideoGamesByName, fetchVideoGamesCategories, deleteVideoGameById, getVideoGamePlatforms, getVideoGameIdsByPlatformId } from "../api/VideoGamesApi";
 import { VideoGameDTO } from "../dto/VideoGameDTO";
@@ -21,7 +22,7 @@ export class VideoGameRepository {
         return await deleteVideoGameById(id); 
     } 
 
-    static async getGamePlatforms() : Promise<number[]> {
+    static async getGamePlatforms() : Promise<Platform[]> {
         return await getVideoGamePlatforms()
     }
 
