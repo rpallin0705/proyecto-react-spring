@@ -22,3 +22,13 @@ export const deleteVideoGameById = async (id: number) => {
         ? true
         : false
 };
+
+export const getVideoGamePlatforms = async () => {
+    const response = await api.get(ENDPOINTS.VIDEOGAMES_PLATFORMS)
+    return response.data
+}
+
+export const getVideoGameIdsByPlatformId = async (id : number) => {
+    const response = await api.get(`${ENDPOINTS.VIDEOGAMES_BY_PLATFORMS}/${id}`)
+    return response.data
+} 
