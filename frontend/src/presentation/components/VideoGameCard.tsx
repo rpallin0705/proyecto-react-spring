@@ -7,12 +7,10 @@ type VideoGameCardProps = {
 
 const VideoGameCard = ({ videoGame }: VideoGameCardProps) => {
 
-    console.log(videoGame)
-
     return (
         <div className={styles.videogameCard}>
             <img src={videoGame.urlImage}
-                alt={videoGame.name} 
+                alt={videoGame.name}
                 className={styles.videogameImage} />
             <div className={styles.videogameInfo}>
                 <p className={styles.videogameTitle}>{videoGame.name}</p>

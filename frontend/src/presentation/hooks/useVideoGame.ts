@@ -17,7 +17,6 @@ export const useVideoGames = () => {
     const [platforms, setPlatforms] = useState<Platform[]>([])
     const [selectedGame, setSelectedGame] = useState<VideoGame | null>(null)
     const [deletedVideoGame, setDeletedVideoGame] = useState<boolean>(false)
-    const [filteredVideoGames, setFilteredVideogames] = useState<VideoGame[]>()
     const [selectedPlatform, setSelectedPlatform] = useState<number | null>(null)
     const [platformGameIds, setPlatformGameIds] = useState<number[]>([])
 
@@ -39,14 +38,6 @@ export const useVideoGames = () => {
         }
     }, [selectedPlatform])
 
-    useEffect(() => {
-        if (platformGameIds.length > 0) {
-            videoGames.filter(game => platformGameIds.includes(game.id))
-        } else {
-            setFilteredVideogames(videoGames)
-        }
-    }, [platformGameIds, videoGames])
-
     const getVideoGameByName = async (name: string) => {
         const game = await GetVideoGameByName.execute(name);
         setSelectedGame(game);
@@ -61,7 +52,7 @@ export const useVideoGames = () => {
     }
 
     return {
-        videoGames, filteredVideoGames, selectedGame
+        videoGames, selectedGame, platformGameIds
         , categories, platforms, selectedPlatform
         , setSelectedPlatform, getVideoGameByName
         , deletedVideoGame, deleteVideoGame

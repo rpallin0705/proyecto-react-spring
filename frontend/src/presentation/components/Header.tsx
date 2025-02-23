@@ -4,12 +4,16 @@ import styles from "../styles/RootLayout.module.css"
 import { useState } from "react";
 
 export const Header = () => {
-    const { categories, platforms } = useVideoGames()
+    const { categories, platforms, setSelectedPlatform } = useVideoGames()
     const [isSelected, setIsSelected] = useState<boolean>(false)
     const navigate = useNavigate();
 
     const handleCategoryClick = (category: string) => {
         navigate(`/video-games/${category}`);
+    };
+
+    const handlePlatformClick = (id: number) => {
+        setSelectedPlatform(id)
     };
 
     return (
@@ -32,7 +36,7 @@ export const Header = () => {
                 <nav className={styles.platformNav} style={{ display: isSelected ? 'flex' : 'none' }}>
                     {platforms.map((platform, index) =>
                         <li className={styles.category} key={index}>
-                            <span>{platform.name}</span>
+                            <span onClick={() => handlePlatformClick(platform.id)}>{platform.name}</span>
                         </li>
                     )}
                 </nav>
