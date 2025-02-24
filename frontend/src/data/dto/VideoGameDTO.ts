@@ -6,5 +6,5 @@ export interface VideoGameDTO {
     readonly category : string,
     readonly vgCoverImage : string,
     readonly vgImage : string,
-    readonly platformIds : number[],
+    readonly platformsIds : number[],
 }

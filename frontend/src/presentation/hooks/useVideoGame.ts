@@ -6,7 +6,6 @@ import { GetVideoGameByName } from "../../domain/usecase/GetVideoGamesByName"
 import { DeleteVideoGameById } from "../../domain/usecase/DeleteVideoGameByName"
 import { GetVideoGamePlatforms } from "../../domain/usecase/GetVideoGamePlatforms"
 import { GetVideoGameIdsByPlatformId } from "../../domain/usecase/GetVideoGamesIdsByPlatformId"
-import { PlatformDTO } from "../../data/dto/PlatformDTO"
 import { Platform } from "../../domain/entities/Platform"
 
 
@@ -17,8 +16,7 @@ export const useVideoGames = () => {
     const [platforms, setPlatforms] = useState<Platform[]>([])
     const [selectedGame, setSelectedGame] = useState<VideoGame | null>(null)
     const [deletedVideoGame, setDeletedVideoGame] = useState<boolean>(false)
-    const [selectedPlatform, setSelectedPlatform] = useState<number | null>(null)
-    const [platformGameIds, setPlatformGameIds] = useState<number[]>([])
+    const [selectedPlatform, setSelectedPlatform] = useState<number>(-1)
 
     useEffect(() => {
         GetVideoGames.execute().then(setVideoGames)
@@ -32,11 +30,10 @@ export const useVideoGames = () => {
         GetVideoGamePlatforms.execute().then(setPlatforms)
     }, [])
 
-    useEffect(() => {
-        if (selectedPlatform !== null) {
-            GetVideoGameIdsByPlatformId.execute(selectedPlatform).then(setPlatformGameIds)
-        }
-    }, [selectedPlatform])
+    const getVideoGameIdsByPlatformId = async (id: number) => {
+        const result = await GetVideoGameIdsByPlatformId.execute(id)
+        return await result
+    }
 
     const getVideoGameByName = async (name: string) => {
         const game = await GetVideoGameByName.execute(name);
@@ -52,9 +49,10 @@ export const useVideoGames = () => {
     }
 
     return {
-        videoGames, selectedGame, platformGameIds
+        videoGames, selectedGame
         , categories, platforms, selectedPlatform
         , setSelectedPlatform, getVideoGameByName
         , deletedVideoGame, deleteVideoGame
+        , getVideoGameIdsByPlatformId, 
     }
 }
