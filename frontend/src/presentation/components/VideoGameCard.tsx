@@ -1,11 +1,11 @@
 import { VideoGame } from "../../domain/entities/VideoGame";
-import styles from "../styles/VideoGameCard.module.css"; // Importa los estilos como módulo
+import styles from "../styles/VideoGameCard.module.css"; 
 
 type VideoGameCardProps = {
     videoGame: VideoGame;
 };
 
-const VideoGameCard = ({ videoGame }: VideoGameCardProps) => {
+const VideoGameCard: React.FC<VideoGameCardProps> = ({ videoGame }) => {
 
     return (
         <div className={styles.videogameCard}>

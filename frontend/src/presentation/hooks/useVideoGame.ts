@@ -16,7 +16,7 @@ export const useVideoGames = () => {
     const [platforms, setPlatforms] = useState<Platform[]>([])
     const [selectedGame, setSelectedGame] = useState<VideoGame | null>(null)
     const [deletedVideoGame, setDeletedVideoGame] = useState<boolean>(false)
-    const [selectedPlatform, setSelectedPlatform] = useState<number>(-1)
+    
 
     useEffect(() => {
         GetVideoGames.execute().then(setVideoGames)
@@ -30,9 +30,11 @@ export const useVideoGames = () => {
         GetVideoGamePlatforms.execute().then(setPlatforms)
     }, [])
 
+    // TODO revisar porque no se actualizaban en el VideoGameList
     const getVideoGameIdsByPlatformId = async (id: number) => {
         const result = await GetVideoGameIdsByPlatformId.execute(id)
-        return await result
+        console.log(result)
+        return result
     }
 
     const getVideoGameByName = async (name: string) => {
@@ -50,8 +52,8 @@ export const useVideoGames = () => {
 
     return {
         videoGames, selectedGame
-        , categories, platforms, selectedPlatform
-        , setSelectedPlatform, getVideoGameByName
+        , categories, platforms
+        , getVideoGameByName
         , deletedVideoGame, deleteVideoGame
         , getVideoGameIdsByPlatformId, 
     }

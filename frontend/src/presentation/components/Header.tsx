@@ -1,19 +1,19 @@
 import { useVideoGames } from "../hooks/useVideoGame";
 import { useNavigate, useParams } from "react-router-dom";
 import styles from "../styles/RootLayout.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Platform } from "../../domain/entities/Platform";
 
-export const Header = () => {
-    const { categories, platforms, getVideoGameIdsByPlatformId, } = useVideoGames();
-    const { category, platform } = useParams(); // Obtener valores actuales de la URL
+export const Header : React.FC = () => {
+    const { categories, platforms } = useVideoGames();
+    const { category, platform } = useParams(); 
     const [isSelected, setIsSelected] = useState<boolean>(false);
     const navigate = useNavigate();
 
-   
+
     const updateRoute = (newCategory?: string, newPlatform?: string) => {
-        let finalCategory = newCategory || category || "none"; 
-        let finalPlatform = newPlatform || platform || ""; 
+        let finalCategory = newCategory || category || "none";
+        let finalPlatform = newPlatform || platform || "";
 
         let newPath = `/video-games/${finalCategory}`;
         if (finalPlatform) newPath += `/${finalPlatform}`;
@@ -22,13 +22,13 @@ export const Header = () => {
     };
 
     const handleCategoryClick = (selectedCategory: string) => {
-        updateRoute(selectedCategory, platform); 
+        updateRoute(selectedCategory, platform);
     };
 
-    const handlePlatformClick = async (platform: Platform) => {  
-        updateRoute(category || "none", `${platform.id}` );
+    const handlePlatformClick = async (platform: Platform) => {
+        updateRoute(category || "none", `${platform.id}`);
     };
-    
+
     return (
         <header className={styles.header}>
             <div className={styles.headerLogo}>

@@ -5,31 +5,33 @@ import React, { useEffect, useState } from "react";
 import { VideoGame } from "../../domain/entities/VideoGame";
 import VideoGameDialog from "../dialog/VideoGameDialog";
 import VideoGameCard from "../components/VideoGameCard";
+import { Platform } from "../../domain/entities/Platform";
 
 const VideoGameListPage: React.FC = () => {
-    const { category, platform } = useParams(); // Obtener valores desde la URL
+    const { category, platform } = useParams();
     const { videoGames, deleteVideoGame, platforms } = useVideoGames();
     const navigate = useNavigate();
 
     const [selectedGame, setSelectedGame] = useState<VideoGame | null>(null);
     const [displayedVideoGames, setDisplayedVideoGames] = useState<VideoGame[]>([]);
+    const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null)
 
     useEffect(() => {
+        const platformId = platform ? Number(platform) : null;
 
-        
-        
+        const plataformaEncontrada = platforms.find(plat => plat.id === platformId) || null;
+        setSelectedPlatform(plataformaEncontrada);
+
         const filteredGames = videoGames.filter(game => {
-
             const categoryMatch = !category || category === "none" || game.category === category;
-            const platformMatch = !platform || game.platformIds.includes(Number(platform))
+            const platformMatch = !platformId || game.platformIds.includes(platformId);
+
             return categoryMatch && platformMatch;
         });
 
         setDisplayedVideoGames(filteredGames);
 
     }, [category, platform, videoGames]);
-
-
 
     const handleDelete = async (id: number): Promise<boolean> => {
         const success = await deleteVideoGame(id);
@@ -41,12 +43,13 @@ const VideoGameListPage: React.FC = () => {
     };
 
     const handleClearPlatform = () => {
+        setSelectedPlatform(null)
         navigate(category && category !== "none" ? `/video-games/${category}` : "/video-games");
     };
 
     return (
         <div className={styles.videoGamesContainer}>
-            {(category !== "none" || platform) && (
+            {(category !== undefined || selectedPlatform !== null) && (
                 <div className={styles.categoryInfo}>
                     <h2>
                         Filtrando por
@@ -59,7 +62,7 @@ const VideoGameListPage: React.FC = () => {
                         {category !== "none" && platform && " y"}
                         {platform && (
                             <>
-                                {" Plataforma: "}{platform}
+                                {" Plataforma: "}{selectedPlatform?.name}
                                 <button onClick={handleClearPlatform} title="Eliminar Plataforma">X</button>
                             </>
                         )}
