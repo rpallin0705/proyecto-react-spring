@@ -13,8 +13,7 @@ public class VideoGameMapper {
         if (videoGame == null) {
             return null;
         }
-
-        // ✅ Extrae solo los IDs de las plataformas
+        
         List<Long> platformIds = videoGame.getVideoGamePlatforms() != null
                 ? videoGame.getVideoGamePlatforms().stream()
                         .map(vgp -> vgp.getPlatform().getId())
