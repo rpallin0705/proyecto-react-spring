@@ -1,22 +1,33 @@
 package com.example.proyectoapirest.backend.infraestrucutre.adapter.controller;
 
-import com.example.proyectoapirest.backend.application.dto.CreateVideoGameDTO;
-import com.example.proyectoapirest.backend.application.dto.VideoGameDTO;
+import com.example.proyectoapirest.backend.application.service.PlatformService;
+import com.example.proyectoapirest.backend.application.service.VideoGamePlatformService;
 import com.example.proyectoapirest.backend.application.service.VideoGameService;
+import com.example.proyectoapirest.backend.shared.dto.CreateVideoGameDTO;
+import com.example.proyectoapirest.backend.shared.dto.PlatformDTO;
+import com.example.proyectoapirest.backend.shared.dto.VideoGameDTO;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping("/videogames")
 public class VideoGameController {
 
     private final VideoGameService videoGameService;
+    private final VideoGamePlatformService videoGamePlatformService;
+    private final PlatformService platformService;
 
-    public VideoGameController(VideoGameService videoGameService) {
+    public VideoGameController(
+            VideoGameService videoGameService,
+            VideoGamePlatformService videoGamePlatformService,
+            PlatformService platformService) {
         this.videoGameService = videoGameService;
+        this.videoGamePlatformService = videoGamePlatformService;
+        this.platformService = platformService;
     }
 
     @PostMapping
@@ -59,5 +70,16 @@ public class VideoGameController {
         return !categoriesList.isEmpty()
                 ? ResponseEntity.ok(categoriesList)
                 : ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/by-platforms/{platformId}")
+    public ResponseEntity<List<Long>> getGamesIdsByPlatform(@PathVariable Long platformId) {
+        List<Long> gameIds = videoGamePlatformService.getGameIds(platformId);
+        return !gameIds.isEmpty() ? ResponseEntity.ok(gameIds) : ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/platforms")
+    public ResponseEntity<List<PlatformDTO>> getAllPlatforms() {
+        return ResponseEntity.ok(platformService.getAllPlatforms());
     }
 }

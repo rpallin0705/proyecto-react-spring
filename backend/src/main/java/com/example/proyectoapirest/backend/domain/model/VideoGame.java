@@ -1,13 +1,9 @@
 package com.example.proyectoapirest.backend.domain.model;
 
-import com.example.proyectoapirest.backend.application.dto.CreateVideoGameDTO;
-import com.example.proyectoapirest.backend.application.dto.VideoGameDTO;
+import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotBlank;
+import com.example.proyectoapirest.backend.shared.dto.CreateVideoGameDTO;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +22,19 @@ public class VideoGame {
     private VGCategory category;
     private String vgImage;
     private String vgCoverImage;
+    private List<VideoGamePlatform> videoGamePlatforms;
+
+
+    public VideoGame(Long id, String name, String description, double price, VGCategory category, String vgImage, String vgCoverImage) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.category = category;
+        this.vgImage = vgImage;
+        this.vgCoverImage = vgCoverImage;
+    }
+
 
     public VideoGame(CreateVideoGameDTO newVideoGameDTO) {
         this.id = null;
@@ -39,5 +48,6 @@ public class VideoGame {
         this.description = description;
         this.price = price;
     }
+
 
 }

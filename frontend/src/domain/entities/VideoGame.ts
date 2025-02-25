@@ -7,5 +7,6 @@ export class VideoGame {
         public category: string,
         public urlImage: string,
         public urlCoverImage: string,
+        public platformIds: number[]
     ) { }
 }

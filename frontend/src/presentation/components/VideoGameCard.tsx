@@ -1,18 +1,16 @@
 import { VideoGame } from "../../domain/entities/VideoGame";
-import styles from "../styles/VideoGameCard.module.css"; // Importa los estilos como módulo
+import styles from "../styles/VideoGameCard.module.css"; 
 
 type VideoGameCardProps = {
     videoGame: VideoGame;
 };
 
-const VideoGameCard = ({ videoGame }: VideoGameCardProps) => {
-
-    console.log(videoGame)
+const VideoGameCard: React.FC<VideoGameCardProps> = ({ videoGame }) => {
 
     return (
         <div className={styles.videogameCard}>
             <img src={videoGame.urlImage}
-                alt={videoGame.name} 
+                alt={videoGame.name}
                 className={styles.videogameImage} />
             <div className={styles.videogameInfo}>
                 <p className={styles.videogameTitle}>{videoGame.name}</p>

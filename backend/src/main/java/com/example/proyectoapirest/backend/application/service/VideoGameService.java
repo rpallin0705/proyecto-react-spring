@@ -9,12 +9,15 @@ import com.example.proyectoapirest.backend.application.usecase.*;
 import com.example.proyectoapirest.backend.domain.model.VGCategory;
 import org.springframework.stereotype.Service;
 
-import com.example.proyectoapirest.backend.application.dto.CreateVideoGameDTO;
-import com.example.proyectoapirest.backend.application.dto.VideoGameDTO;
 import com.example.proyectoapirest.backend.domain.model.VideoGame;
 import com.example.proyectoapirest.backend.domain.repository.VideoGameRepository;
+import com.example.proyectoapirest.backend.shared.dto.CreateVideoGameDTO;
+import com.example.proyectoapirest.backend.shared.dto.VideoGameDTO;
+
+import jakarta.transaction.Transactional;
 
 @Service
+@Transactional
 public class VideoGameService implements
         CreateVideoGameUseCase,
         GetVideoGameByNameUseCase,
@@ -53,7 +56,10 @@ public class VideoGameService implements
 
     @Override
     public List<VideoGameDTO> list() {
-        return VideoGameMapper.toDTOList(videoGameRepository.findAll());
+        List<VideoGame> videoGames = videoGameRepository.findAll();
+        return videoGames.stream()
+                .map(VideoGameMapper::toDTO) 
+                .toList();
     }
 
     @Override

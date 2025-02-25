@@ -18,3 +18,95 @@ INSERT INTO videogame (name, description, price, category, url_cover_image, url_
 INSERT INTO videogame (name, description, price, category, url_cover_image, url_image) VALUES ('Senua\'s Saga: Hellblade II', 'Secuela del aclamado juego de acción y aventura, profundizando en la historia de Senua en un mundo mitológico.', 69.99, 'AVENTURA', 'https://gaming-cdn.com/images/products/5954/616x353/senua-s-saga-hellblade-ii-pc-juego-steam-cover.jpg?v=1717577712', 'https://gaming-cdn.com/img/products/5954/pcover/700x300/5954.jpg?v=1717577712');
 INSERT INTO videogame (name, description, price, category, url_cover_image, url_image) VALUES ('Dragon\'s Dogma 2', 'Juego de rol de acción que ofrece un mundo abierto y dinámico, con combates intensos y una historia envolvente.', 59.99, 'ACCION', 'https://gaming-cdn.com/images/products/7911/616x353/dragon-s-dogma-2-pc-juego-steam-europe-cover.jpg?v=1711626178', 'https://gaming-cdn.com/img/products/7911/pcover/700x300/7911.jpg?v=1711626178');
 INSERT INTO videogame (name, description, price, category, url_cover_image, url_image) VALUES ('Elden Ring: Shadow of the Erdtree', 'Expansión del exitoso juego de rol de acción, que introduce nuevas áreas, enemigos y mecánicas de juego.', 39.99, 'ACCION', 'https://gaming-cdn.com/images/products/13652/616x353/elden-ring-shadow-of-the-erdtree-pc-juego-steam-europe-cover.jpg?v=1718975158', 'https://gaming-cdn.com/img/products/4824/pcover/700x300/4824.jpg?v=1734078514');
+
+INSERT INTO platform (name) VALUES ('PC');
+INSERT INTO platform (name) VALUES ('XBOX');
+INSERT INTO platform (name) VALUES ('SWITCH');
+INSERT INTO platform (name) VALUES ('PS5');
+INSERT INTO platform (name) VALUES ('PS4');
+
+-- Black Myth: Wukong (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (1, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (1, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (1, 4);
+
+-- Dragon Ball Sparking! Zero (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (2, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (2, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (2, 4);
+
+-- Super Mario Bros. Wonder (Switch)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (3, 3);
+
+-- The Legend of Zelda: Echoes of Wisdom (Switch)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (4, 3);
+
+-- EA Sports FC 25 (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (5, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (5, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (5, 4);
+
+-- Nintendo Switch Sports (Switch)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (6, 3);
+
+-- Age of Mythology Retold (PC)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (7, 1);
+
+-- Two Point Museum (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (8, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (8, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (8, 4);
+
+-- Silent Hill 2 (PC, PS5)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (9, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (9, 4);
+
+-- Resident Evil 4 Remake (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (10, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (10, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (10, 4);
+
+-- Frostpunk 2 (PC)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (11, 1);
+
+-- F1 24 (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (12, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (12, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (12, 4);
+
+-- Indiana Jones y el Gran Círculo (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (13, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (13, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (13, 4);
+
+-- Animal Well (PC, PS5, Switch)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (14, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (14, 3);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (14, 4);
+
+-- Prince of Persia: The Lost Crown (PC, PS5, Switch)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (15, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (15, 3);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (15, 4);
+
+-- Tekken 8 (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (16, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (16, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (16, 4);
+
+-- Mario vs. Donkey Kong (Switch)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (17, 3);
+
+-- Senua's Saga: Hellblade II (PC, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (18, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (18, 2);
+
+-- Dragon's Dogma 2 (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (19, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (19, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (19, 4);
+
+-- Elden Ring: Shadow of the Erdtree (PC, PS5, XBOX)
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (20, 1);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (20, 2);
+INSERT INTO video_game_platform (videogame_id, platform_id) VALUES (20, 4);

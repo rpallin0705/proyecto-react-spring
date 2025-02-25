@@ -1,11 +1,15 @@
-package com.example.proyectoapirest.backend.infraestrucutre.adapter.repository;
+package com.example.proyectoapirest.backend.infraestrucutre.adapter.repository.jpa;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
+
+import com.example.proyectoapirest.backend.application.mapper.VideoGameMapper;
 import com.example.proyectoapirest.backend.domain.model.VideoGame;
 import com.example.proyectoapirest.backend.domain.repository.VideoGameRepository;
+import com.example.proyectoapirest.backend.infraestrucutre.adapter.repository.entity.VideoGameEntity;
+import com.example.proyectoapirest.backend.infraestrucutre.adapter.repository.springdata.SpringDataVideoGameRepository;
 
 @Repository
 public class JpaVideoGameRepository implements VideoGameRepository {
@@ -23,19 +27,18 @@ public class JpaVideoGameRepository implements VideoGameRepository {
 
     @Override
     public Optional<VideoGame> findByName(String name) {
-        return springDataRepo.findByName(name).map(VideoGameEntity::toDomainModel); 
+        return springDataRepo.findByName(name).map(VideoGameEntity::toDomainModel);
     }
 
     @Override
     public List<VideoGame> findAll() {
-        return springDataRepo.findAll().stream()
-                .map(VideoGameEntity::toDomainModel)
-                .toList();
+        return VideoGameMapper.toDomainList(springDataRepo.findAll());
+                
     }
 
     @Override
     public VideoGame save(VideoGame videoGame) {
-        VideoGameEntity savedEntity = springDataRepo.save(new VideoGameEntity(videoGame));
+        VideoGameEntity savedEntity = springDataRepo.save(VideoGameMapper.toEntity(videoGame));
         return savedEntity.toDomainModel();
     }
 
