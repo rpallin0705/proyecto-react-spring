@@ -1,4 +1,6 @@
-# Para ejecutar el proyecto 
+# Proyecto Spring - React Clean Architecture
+
+## Ejecución del proyecto
 
 Abrimos una terminal en la carpeta raiz y ejecutamos los siguientes comando
 
