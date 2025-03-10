@@ -1,17 +1,17 @@
-import { useVideoGames } from "../hooks/useVideoGame";
+import { useVideoGames } from "../context/VideoGameContext"; // ⬅️ Ahora importamos desde el contexto
 import { useNavigate, useParams } from "react-router-dom";
 import styles from "../styles/RootLayout.module.css";
 import { useState } from "react";
 import { Platform } from "../../domain/entities/Platform";
-import { useAuth } from "../context/AuthContext"; 
-import { Button } from "@mui/material"; 
+import { useAuth } from "../context/AuthContext";
+import { Button } from "@mui/material";
 
 export const Header: React.FC = () => {
-    const { categories, platforms } = useVideoGames();
-    const { category, platform } = useParams(); 
+    const { categories, platforms } = useVideoGames(); // ⬅️ Ahora usamos el contexto
+    const { category, platform } = useParams();
     const [isSelected, setIsSelected] = useState<boolean>(false);
     const navigate = useNavigate();
-    const { user, logout } = useAuth(); 
+    const { user, logout } = useAuth();
 
     const updateRoute = (newCategory?: string, newPlatform?: string) => {
         let finalCategory = newCategory || category || "none";

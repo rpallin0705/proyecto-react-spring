@@ -1,69 +1,55 @@
 import styles from "../styles/VideoGameList.module.css";
-import { useVideoGames } from "../hooks/useVideoGame";
+import { useVideoGames } from "../context/VideoGameContext"; // ⬅️ Ahora importamos desde el contexto
 import { useNavigate, useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { VideoGame } from "../../domain/entities/VideoGame";
 import VideoGameDialog from "../dialog/VideoGameDialog";
 import VideoGameCard from "../components/VideoGameCard";
 import { Platform } from "../../domain/entities/Platform";
+import { useAuth } from "../context/AuthContext";
 
 const VideoGameListPage: React.FC = () => {
     const { category, platform } = useParams();
-    const { videoGames, deleteVideoGame, platforms } = useVideoGames();
+    const { videoGames, deleteVideoGame, platforms } = useVideoGames(); // ⬅️ Videojuegos directamente del contexto
+    const { user } = useAuth();
     const navigate = useNavigate();
 
     const [selectedGame, setSelectedGame] = useState<VideoGame | null>(null);
-    const [displayedVideoGames, setDisplayedVideoGames] = useState<VideoGame[]>([]);
-    const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null)
+    const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
 
     useEffect(() => {
         const platformId = platform ? Number(platform) : null;
+        setSelectedPlatform(platforms.find(plat => plat.id === platformId) || null);
+    }, [platform, platforms]);
 
-        const plataformaEncontrada = platforms.find(plat => plat.id === platformId) || null;
-        setSelectedPlatform(plataformaEncontrada);
-
-        const filteredGames = videoGames.filter(game => {
-            const categoryMatch = !category || category === "none" || game.category === category;
-            const platformMatch = !platformId || game.platformIds.includes(platformId);
-
-            return categoryMatch && platformMatch;
-        });
-
-        setDisplayedVideoGames(filteredGames);
-
-    }, [category, platform, videoGames]);
-
-    const handleDelete = async (id: number): Promise<boolean> => {
-        const success = await deleteVideoGame(id);
-        return success;
-    };
-
-    const handleClearCategory = () => {
-        navigate(platform ? `/video-games/none/${platform}` : "/video-games");
-    };
-
-    const handleClearPlatform = () => {
-        setSelectedPlatform(null)
-        navigate(category && category !== "none" ? `/video-games/${category}` : "/video-games");
-    };
+    const filteredVideoGames = videoGames.filter(game => {
+        if (!user) return false; 
+        const platformId = platform ? Number(platform) : null;
+        return (
+            (!category || category === "none" || game.category === category) &&
+            (!platformId || game.platformIds.includes(platformId))
+        );
+    });
 
     return (
         <div className={styles.videoGamesContainer}>
-            {(category !== undefined || selectedPlatform !== null) && (
+            <h1>{user ? "Tus videojuegos" : "Inicia sesión para ver los videojuegos"}</h1>
+
+            {(category !== undefined || selectedPlatform !== null) && user && (
                 <div className={styles.categoryInfo}>
                     <h2>
                         Filtrando por
                         {category && category !== "none" && (
                             <>
                                 {" Categoría: "}{category}
-                                <button onClick={handleClearCategory} title="Eliminar Categoría">X</button>
+                                <button onClick={() => navigate(platform ? `/video-games/none/${platform}` : "/video-games")} title="Eliminar Categoría">X</button>
                             </>
                         )}
-                        {category !== "none" && platform && " y"}
+                        {category !== "none" && platform && " y "}
                         {platform && (
                             <>
                                 {" Plataforma: "}{selectedPlatform?.name}
-                                <button onClick={handleClearPlatform} title="Eliminar Plataforma">X</button>
+                                <button onClick={() => navigate(category ? `/video-games/${category}` : "/video-games")} title="Eliminar Plataforma">X</button>
                             </>
                         )}
                     </h2>
@@ -71,21 +57,25 @@ const VideoGameListPage: React.FC = () => {
             )}
 
             <div className={styles.videoGames}>
-                {displayedVideoGames.map(game => (
-                    <div
-                        key={game.id}
-                        className={styles.videoGame}
-                        onClick={() => setSelectedGame(game)}
-                    >
-                        <VideoGameCard videoGame={game} />
-                    </div>
-                ))}
+                {user ? (
+                    filteredVideoGames.length > 0 ? (
+                        filteredVideoGames.map(game => (
+                            <div key={game.id} className={styles.videoGame} onClick={() => setSelectedGame(game)}>
+                                <VideoGameCard videoGame={game} />
+                            </div>
+                        ))
+                    ) : (
+                        <p>No hay videojuegos disponibles.</p>
+                    )
+                ) : (
+                    <p>Por favor, inicia sesión para ver los videojuegos.</p>
+                )}
             </div>
 
             <VideoGameDialog
                 game={selectedGame}
                 onClose={() => setSelectedGame(null)}
-                onDelete={handleDelete}
+                onDelete={deleteVideoGame}
             />
         </div>
     );
