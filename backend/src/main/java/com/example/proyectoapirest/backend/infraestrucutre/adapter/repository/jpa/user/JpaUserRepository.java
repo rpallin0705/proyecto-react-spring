@@ -31,4 +31,9 @@ public class JpaUserRepository implements UserRepository {
         throw new UnsupportedOperationException("Unimplemented method 'login'");
     }
 
+    @Override
+    public Optional<User> findByName(String username) {
+        return springDataRepo.findByName(username).map(UserMapper::toDomain);
+    }
+
 }
