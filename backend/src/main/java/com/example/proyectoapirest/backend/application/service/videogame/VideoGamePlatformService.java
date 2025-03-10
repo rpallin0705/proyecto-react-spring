@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 import com.example.proyectoapirest.backend.application.usecase.videogame.GetGameIdsByPlatFormUseCase;
 import com.example.proyectoapirest.backend.domain.repository.videogame.VideoGamePlatformRepository;
 
-
-@Service
 public class VideoGamePlatformService implements GetGameIdsByPlatFormUseCase {
 
     private final VideoGamePlatformRepository videoGamePlatformRepository;

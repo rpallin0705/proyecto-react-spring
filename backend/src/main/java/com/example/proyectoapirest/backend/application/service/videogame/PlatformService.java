@@ -9,7 +9,6 @@ import com.example.proyectoapirest.backend.application.usecase.videogame.GetPlat
 import com.example.proyectoapirest.backend.domain.repository.videogame.PlatformRepository;
 import com.example.proyectoapirest.backend.shared.dto.videogame.PlatformDTO;
 
-@Service
 public class PlatformService implements GetPlatformsUseCase {
 
     private final PlatformRepository platformRepository;

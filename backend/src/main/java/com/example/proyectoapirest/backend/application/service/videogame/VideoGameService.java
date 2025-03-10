@@ -23,7 +23,6 @@ import com.example.proyectoapirest.backend.shared.dto.videogame.VideoGameDTO;
 
 import jakarta.transaction.Transactional;
 
-@Service
 @Transactional
 public class VideoGameService implements
         CreateVideoGameUseCase,

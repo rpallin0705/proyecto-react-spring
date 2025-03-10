@@ -1,17 +1,16 @@
 package com.example.proyectoapirest.backend.domain.model.user;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 
-@Data
-@NoArgsConstructor
+@Getter
 @AllArgsConstructor
-@Accessors(chain = true)
+@NoArgsConstructor
 public class User {
     private Long id;
     private String username;
+    private String email;
     private String password;
-    private Boolean enabled;
+    private String role;
 }
