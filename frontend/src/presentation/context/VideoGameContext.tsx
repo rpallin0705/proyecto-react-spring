@@ -34,7 +34,6 @@ export const VideoGameProvider = ({ children }: { children: ReactNode }) => {
             GetVideoGameCategories.execute().then(setCategories);
             GetVideoGamePlatforms.execute().then(setPlatforms);
         } else {
-            console.log("❌ No hay usuario autenticado, limpiando datos...");
             setVideoGames([]);
             setCategories([]);
             setPlatforms([]);

@@ -42,14 +42,14 @@ const VideoGameListPage: React.FC = () => {
                         {category && category !== "none" && (
                             <>
                                 {" Categoría: "}{category}
-                                <button onClick={() => navigate(platform ? `/video-games/none/${platform}` : "/video-games")} title="Eliminar Categoría">X</button>
+                                <button onClick={() => navigate(platform ? `/videogames/none/${platform}` : "/videogames")} title="Eliminar Categoría">X</button>
                             </>
                         )}
                         {category !== "none" && platform && " y "}
                         {platform && (
                             <>
                                 {" Plataforma: "}{selectedPlatform?.name}
-                                <button onClick={() => navigate(category ? `/video-games/${category}` : "/video-games")} title="Eliminar Plataforma">X</button>
+                                <button onClick={() => navigate(category ? `/videogames/${category}` : "/videogames")} title="Eliminar Plataforma">X</button>
                             </>
                         )}
                     </h2>

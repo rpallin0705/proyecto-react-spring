@@ -1,10 +1,10 @@
-@keyframes slideFromRight {
+@keyframes zoomIn {
   from {
-    transform: translate(30%, -50%);
+    transform: translate(-50%, -50%) scale(0.8);
     opacity: 0;
   }
   to {
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
 }
@@ -14,17 +14,18 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgb(37, 34, 34);
+  background: rgba(15, 15, 15, 0.9); 
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.6); 
   z-index: 1000;
   width: 600px;
-  height: 400px;
+  height: 420px;
   text-align: center;
-  animation: slideFromRight 0.3s ease-in-out;
+  animation: zoomIn 0.3s ease-out; 
   display: flex;
   flex-direction: column;
+  backdrop-filter: blur(10px);
 }
 
 .dialogHeader {
@@ -33,36 +34,40 @@
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  border-radius: 10px;
+  border-radius: 15px 15px 0 0;
   background-size: cover;
-  background-position: "center";
+  background-position: center;
+  box-shadow: inset 0px -30px 30px rgba(0, 0, 0, 0.7);
 }
 
 .gameInfo {
   width: 100%;
   display: flex;
-  gap: 30px;
-  backdrop-filter: "blur(10px)";
-  background-color: rgba(0, 0, 0, 0.5);
-  padding-left: 10px;
-  border-radius: 0 0 10px 0;
-  color: "white";
+  gap: 20px;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.5);
+  padding-left: 15px;
+  border-radius: 0 0 15px 0;
+  color: white;
   align-items: center;
 }
 
 .dialogHeader img {
-  max-width: 200px;
+  max-width: 180px;
   aspect-ratio: 16 / 9;
-  border-radius: 10px 10px 0 10px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.7); 
 }
 
 .content {
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   justify-content: space-between;
   color: white;
+  font-size: 1rem;
+  text-shadow: 0px 0px 5px rgba(0, 255, 255, 0.8);
 }
 
 .overlay {
@@ -71,11 +76,11 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
   z-index: 999;
   animation: fadeIn 0.4s ease-in-out;
 }
-
 
 .contentButton {
   display: flex;
@@ -86,4 +91,49 @@
 
 .contentButton button {
   cursor: pointer;
+}
+
+.contentButton button {
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-width: 120px;
+}
+
+.contentButton button:first-child {
+  background: linear-gradient(to right, #0077ff, #00ffff);
+  color: black;
+  box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.6);
+}
+
+.contentButton button:first-child:hover {
+  background: linear-gradient(to right, #0055cc, #00aaaa);
+  box-shadow: 0px 0px 15px rgba(0, 255, 255, 1);
+}
+
+.contentButton button:first-child:active {
+  transform: scale(0.95);
+  box-shadow: 0px 0px 5px rgba(0, 255, 255, 1);
+}
+
+.contentButton button:last-child {
+  background: linear-gradient(to right, #ff0000, #ff6600);
+  color: white;
+  box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.6);
+}
+
+.contentButton button:last-child:hover {
+  background: linear-gradient(to right, #cc0000, #ff3300);
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 1);
+}
+
+.contentButton button:last-child:active {
+  transform: scale(0.95);
+  box-shadow: 0px 0px 5px rgba(255, 0, 0, 1);
 }

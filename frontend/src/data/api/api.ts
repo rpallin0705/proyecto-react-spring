@@ -21,4 +21,17 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
+api.interceptors.response.use(
+  (response) => response, 
+  (error) => {
+    if (error.response && error.response.status === 403) {
+      console.warn("Token inválido o expirado, redirigiendo a /login...");
+      localStorage.removeItem("token");
+      localStorage.removeItem("user")
+      window.location.href = "/login"; 
+    }
+    return Promise.reject(error); 
+  }
+);
+
 export default api;

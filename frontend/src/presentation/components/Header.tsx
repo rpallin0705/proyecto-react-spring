@@ -17,7 +17,7 @@ export const Header: React.FC = () => {
         let finalCategory = newCategory || category || "none";
         let finalPlatform = newPlatform || platform || "";
 
-        let newPath = `/video-games/${finalCategory}`;
+        let newPath = `/videogames/${finalCategory}`;
         if (finalPlatform) newPath += `/${finalPlatform}`;
 
         navigate(newPath);
