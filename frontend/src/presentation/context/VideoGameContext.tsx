@@ -30,8 +30,6 @@ export const VideoGameProvider = ({ children }: { children: ReactNode }) => {
 
     useEffect(() => {
         if (user) {
-            console.log("✅ Usuario autenticado:", user);
-            console.log("🔄 Cargando videojuegos...");
             GetVideoGames.execute().then(setVideoGames);
             GetVideoGameCategories.execute().then(setCategories);
             GetVideoGamePlatforms.execute().then(setPlatforms);
