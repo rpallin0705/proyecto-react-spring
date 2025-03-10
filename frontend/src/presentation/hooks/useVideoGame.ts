@@ -7,6 +7,7 @@ import { DeleteVideoGameById } from "../../domain/usecase/DeleteVideoGameByName"
 import { GetVideoGamePlatforms } from "../../domain/usecase/GetVideoGamePlatforms"
 import { GetVideoGameIdsByPlatformId } from "../../domain/usecase/GetVideoGamesIdsByPlatformId"
 import { Platform } from "../../domain/entities/Platform"
+import { useAuth } from "../context/AuthContext"
 
 
 export const useVideoGames = () => {
@@ -16,6 +17,7 @@ export const useVideoGames = () => {
     const [platforms, setPlatforms] = useState<Platform[]>([])
     const [selectedGame, setSelectedGame] = useState<VideoGame | null>(null)
     const [deletedVideoGame, setDeletedVideoGame] = useState<boolean>(false)
+    const {user} = useAuth()
     
 
     useEffect(() => {
@@ -24,11 +26,11 @@ export const useVideoGames = () => {
 
     useEffect(() => {
         GetVideoGameCategories.execute().then(setCategories)
-    }, [])
+    }, [user])
 
     useEffect(() => {
         GetVideoGamePlatforms.execute().then(setPlatforms)
-    }, [])
+    }, [user])
 
     // TODO revisar porque no se actualizaban en el VideoGameList
     const getVideoGameIdsByPlatformId = async (id: number) => {
