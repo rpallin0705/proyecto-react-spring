@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { TextField, Button, Container, Typography, Box, InputAdornment } from "@mui/material";
-import { AccountCircle, Email, Lock } from "@mui/icons-material"; // 🔥 Importamos iconos de MUI
+import { AccountCircle, Email, Lock } from "@mui/icons-material";
 import styles from "../styles/Auth.module.css";
 
 const RegisterPage = () => {
@@ -11,11 +11,29 @@ const RegisterPage = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const handleRegister = async () => {
+    setError("");
+
+    if (!username || !email || !password) {
+      setError("Todos los campos son obligatorios.");
+      return;
+    }
+
+    if (!isValidEmail(email)) {
+      setError("Ingresa un correo electrónico válido.");
+      return;
+    }
+
     const success = await register(username, email, password);
-    if (success) navigate("/login");
-    else alert("Error en registro.");
+    if (success) {
+      navigate("/login");
+    } else {
+      setError("Error en el registro. Inténtalo de nuevo.");
+    }
   };
 
   return (
@@ -26,18 +44,16 @@ const RegisterPage = () => {
         </Typography>
 
         <TextField
-          fullWidth
-          label="Usuario"
-          margin="normal"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className={styles.inputField}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <AccountCircle sx={{ color: "#00ffff" }} />
-              </InputAdornment>
-            ),
+          fullWidth label="Usuario" margin="normal" value={username}
+          onChange={(e) => setUsername(e.target.value)} className={styles.inputField}
+          slotProps={{
+            input: {
+              startAdornment: (
+                <InputAdornment position="start">
+                  <AccountCircle sx={{ color: "#00ffff" }} />
+                </InputAdornment>
+              ),
+            },
           }}
           sx={{
             "& label": { color: "#00ffff" },
@@ -54,18 +70,18 @@ const RegisterPage = () => {
         />
 
         <TextField
-          fullWidth
-          label="Correo"
-          margin="normal"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className={styles.inputField}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <Email sx={{ color: "#00ffff" }} />
-              </InputAdornment>
-            ),
+          fullWidth label="Correo" margin="normal" value={email}
+          onChange={(e) => setEmail(e.target.value)} className={styles.inputField}
+          error={!!error && !isValidEmail(email)}
+          helperText={!!error && !isValidEmail(email) ? "Correo no válido" : ""}
+          slotProps={{
+            input: {
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Email sx={{ color: "#00ffff" }} />
+                </InputAdornment>
+              ),
+            },
           }}
           sx={{
             "& label": { color: "#00ffff" },
@@ -82,19 +98,16 @@ const RegisterPage = () => {
         />
 
         <TextField
-          fullWidth
-          label="Contraseña"
-          type="password"
-          margin="normal"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className={styles.inputField}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <Lock sx={{ color: "#00ffff" }} />
-              </InputAdornment>
-            ),
+          fullWidth label="Contraseña" type="password" margin="normal" value={password}
+          onChange={(e) => setPassword(e.target.value)} className={styles.inputField}
+          slotProps={{
+            input: {
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Lock sx={{ color: "#00ffff" }} />
+                </InputAdornment>
+              ),
+            },
           }}
           sx={{
             "& label": { color: "#00ffff" },
@@ -110,12 +123,9 @@ const RegisterPage = () => {
           }}
         />
 
-        <Button
-          fullWidth
-          variant="contained"
-          className={styles.loginButton}
-          onClick={handleRegister}
-        >
+        {error && <Typography color="error" className={styles.errorMessage}>{error}</Typography>}
+
+        <Button fullWidth variant="contained" className={styles.loginButton} onClick={handleRegister}>
           REGISTRARSE
         </Button>
       </Box>
