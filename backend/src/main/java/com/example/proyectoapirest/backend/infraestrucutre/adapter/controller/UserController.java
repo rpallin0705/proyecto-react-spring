@@ -21,22 +21,23 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestParam String username, @RequestParam String email, @RequestParam String password) {
-        User user = userService.registerUser(username, email, password);
+    public ResponseEntity<?> register(@RequestBody UserRegisterRequest request) {
+        User user = userService.registerUser(request.username(), request.email(), request.password());
         return ResponseEntity.ok("User registered successfully: " + user.getUsername());
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestParam String username, @RequestParam String password) {
-        Optional<User> userOptional = userService.findByUsername(username);
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
+        Optional<User> userOptional = userService.findByUsername(request.username());
 
-        if (userOptional.isPresent() && userService.verifyPassword(password, userOptional.get().getPassword())) {
-            String token = jwtUtil.generateToken(username);
-            return ResponseEntity.ok(new AuthResponse(username, token));
+        if (userOptional.isPresent() && userService.verifyPassword(request.password(), userOptional.get().getPassword())) {
+            String token = jwtUtil.generateToken(request.username());
+            return ResponseEntity.ok(new AuthResponse(request.username(), token));
         }
 
         return ResponseEntity.status(401).body("Invalid username or password");
     }
-
+    private record UserRegisterRequest(String username, String email, String password) {}
+    private record LoginRequest(String username, String password) {}
     private record AuthResponse(String username, String token) {}
 }

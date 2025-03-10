@@ -14,15 +14,24 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.util.Optional;
+import java.util.Arrays;
+import java.util.List;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtUtil jwtUtil;
     private final UserService userService;
+    private static final List<String> EXCLUDED_PATHS = Arrays.asList("/auth/register", "/auth/login");
 
     public JwtAuthenticationFilter(JwtUtil jwtUtil, UserService userService) {
         this.jwtUtil = jwtUtil;
         this.userService = userService;
+    }
+
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+        String path = request.getServletPath();
+        return EXCLUDED_PATHS.contains(path);
     }
 
     @Override
@@ -46,7 +55,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 UserDetails userDetails = org.springframework.security.core.userdetails.User
                         .withUsername(username)
                         .password("")
-                        .authorities("USER") 
+                        .authorities("USER")
                         .build();
 
                 UsernamePasswordAuthenticationToken authToken =

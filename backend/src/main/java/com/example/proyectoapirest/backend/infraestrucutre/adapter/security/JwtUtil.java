@@ -12,7 +12,7 @@ import java.util.function.Function;
 public class JwtUtil {
 
     private static final String SECRET_KEY = "supersecretkeyfortokenwhichshouldbereallysecure";
-    private static final long EXPIRATION_TIME = 1000 * 60 * 60; // 1 hora
+    private static final long EXPIRATION_TIME = 1000 * 60 * 60;
 
     private Key getSigningKey() {
         return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());

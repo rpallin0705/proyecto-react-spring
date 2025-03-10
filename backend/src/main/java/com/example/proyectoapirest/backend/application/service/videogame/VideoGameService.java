@@ -5,16 +5,12 @@ import java.util.List;
 import java.util.Optional;
 
 import com.example.proyectoapirest.backend.application.mapper.videogame.VideoGameMapper;
-import com.example.proyectoapirest.backend.application.usecase.*;
 import com.example.proyectoapirest.backend.application.usecase.videogame.CreateVideoGameUseCase;
 import com.example.proyectoapirest.backend.application.usecase.videogame.DeleteVideoGameUseCase;
 import com.example.proyectoapirest.backend.application.usecase.videogame.GetVideoGameByNameUseCase;
 import com.example.proyectoapirest.backend.application.usecase.videogame.GetVideoGameCategories;
 import com.example.proyectoapirest.backend.application.usecase.videogame.ListVideoGamesUseCase;
 import com.example.proyectoapirest.backend.application.usecase.videogame.UpdateVideoGameUseCase;
-
-import org.springframework.stereotype.Service;
-
 import com.example.proyectoapirest.backend.domain.model.videogame.VGCategory;
 import com.example.proyectoapirest.backend.domain.model.videogame.VideoGame;
 import com.example.proyectoapirest.backend.domain.repository.videogame.VideoGameRepository;

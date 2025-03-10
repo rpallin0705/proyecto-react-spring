@@ -3,9 +3,11 @@ package com.example.proyectoapirest.backend.application.service.user;
 import com.example.proyectoapirest.backend.domain.model.user.User;
 import com.example.proyectoapirest.backend.domain.repository.user.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class UserService {
 
     private final UserRepository userRepository;
@@ -28,7 +30,6 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
-    // 🔹 Nuevo método para verificar la contraseña
     public boolean verifyPassword(String rawPassword, String encodedPassword) {
         return passwordEncoder.matches(rawPassword, encodedPassword);
     }

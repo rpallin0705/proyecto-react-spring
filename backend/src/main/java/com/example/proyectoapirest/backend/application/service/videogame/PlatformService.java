@@ -1,9 +1,6 @@
 package com.example.proyectoapirest.backend.application.service.videogame;
 
 import java.util.List;
-
-import org.springframework.stereotype.Service;
-
 import com.example.proyectoapirest.backend.application.mapper.videogame.PlatformMapper;
 import com.example.proyectoapirest.backend.application.usecase.videogame.GetPlatformsUseCase;
 import com.example.proyectoapirest.backend.domain.repository.videogame.PlatformRepository;
