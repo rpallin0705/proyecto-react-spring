@@ -14,7 +14,7 @@ header {
 
 .header {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
 }
 
@@ -127,4 +127,9 @@ footer {
 .authButton:hover {
   scale: 1.1;
   background-image: linear-gradient(to bottom, #00ffff36, rgba(0, 255, 255, 0.2));
+}
+
+.logoutContainer {
+  justify-self: end; 
+  margin-right: 20px;
 }
