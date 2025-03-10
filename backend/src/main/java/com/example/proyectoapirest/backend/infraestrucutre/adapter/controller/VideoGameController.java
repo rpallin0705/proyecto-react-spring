@@ -1,11 +1,11 @@
 package com.example.proyectoapirest.backend.infraestrucutre.adapter.controller;
 
-import com.example.proyectoapirest.backend.application.service.PlatformService;
-import com.example.proyectoapirest.backend.application.service.VideoGamePlatformService;
-import com.example.proyectoapirest.backend.application.service.VideoGameService;
-import com.example.proyectoapirest.backend.shared.dto.CreateVideoGameDTO;
-import com.example.proyectoapirest.backend.shared.dto.PlatformDTO;
-import com.example.proyectoapirest.backend.shared.dto.VideoGameDTO;
+import com.example.proyectoapirest.backend.application.service.videogame.PlatformService;
+import com.example.proyectoapirest.backend.application.service.videogame.VideoGamePlatformService;
+import com.example.proyectoapirest.backend.application.service.videogame.VideoGameService;
+import com.example.proyectoapirest.backend.shared.dto.videogame.CreateVideoGameDTO;
+import com.example.proyectoapirest.backend.shared.dto.videogame.PlatformDTO;
+import com.example.proyectoapirest.backend.shared.dto.videogame.VideoGameDTO;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
