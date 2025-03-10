@@ -1,4 +1,4 @@
-import { useVideoGames } from "../context/VideoGameContext"; // ⬅️ Ahora importamos desde el contexto
+import { useVideoGames } from "../context/VideoGameContext"; 
 import { useNavigate, useParams } from "react-router-dom";
 import styles from "../styles/RootLayout.module.css";
 import { useState } from "react";
@@ -7,7 +7,7 @@ import { useAuth } from "../context/AuthContext";
 import { Button } from "@mui/material";
 
 export const Header: React.FC = () => {
-    const { categories, platforms } = useVideoGames(); // ⬅️ Ahora usamos el contexto
+    const { categories, platforms } = useVideoGames(); 
     const { category, platform } = useParams();
     const [isSelected, setIsSelected] = useState<boolean>(false);
     const navigate = useNavigate();

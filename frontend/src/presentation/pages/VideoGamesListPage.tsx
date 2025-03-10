@@ -1,5 +1,5 @@
 import styles from "../styles/VideoGameList.module.css";
-import { useVideoGames } from "../context/VideoGameContext"; // ⬅️ Ahora importamos desde el contexto
+import { useVideoGames } from "../context/VideoGameContext";
 import { useNavigate, useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { VideoGame } from "../../domain/entities/VideoGame";
@@ -10,7 +10,7 @@ import { useAuth } from "../context/AuthContext";
 
 const VideoGameListPage: React.FC = () => {
     const { category, platform } = useParams();
-    const { videoGames, deleteVideoGame, platforms } = useVideoGames(); // ⬅️ Videojuegos directamente del contexto
+    const { videoGames, deleteVideoGame, platforms } = useVideoGames(); 
     const { user } = useAuth();
     const navigate = useNavigate();
 
