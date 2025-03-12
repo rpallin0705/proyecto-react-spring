@@ -7,15 +7,18 @@ import VideoGameDialog from "../dialog/VideoGameDialog";
 import VideoGameCard from "../components/VideoGameCard";
 import { Platform } from "../../domain/entities/Platform";
 import { useAuth } from "../context/AuthContext";
+import { InputAdornment, TextField } from "@mui/material";
+import { Search } from "@mui/icons-material";
 
 const VideoGameListPage: React.FC = () => {
     const { category, platform } = useParams();
-    const { videoGames, deleteVideoGame, platforms } = useVideoGames(); 
+    const { videoGames, deleteVideoGame, platforms } = useVideoGames();
     const { user } = useAuth();
     const navigate = useNavigate();
 
     const [selectedGame, setSelectedGame] = useState<VideoGame | null>(null);
     const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
+    const [searchText, setSearchText] = useState<string>("")
 
     useEffect(() => {
         const platformId = platform ? Number(platform) : null;
@@ -23,17 +26,47 @@ const VideoGameListPage: React.FC = () => {
     }, [platform, platforms]);
 
     const filteredVideoGames = videoGames.filter(game => {
-        if (!user) return false; 
+        if (!user) return false;
+        console.log("hola")
         const platformId = platform ? Number(platform) : null;
         return (
             (!category || category === "none" || game.category === category) &&
-            (!platformId || game.platformIds.includes(platformId))
+            (!platformId || game.platformIds.includes(platformId)) &&
+            (game.name.toLocaleLowerCase().includes(searchText.toLowerCase()))
+
         );
     });
 
     return (
         <div className={styles.videoGamesContainer}>
-            <h1>{user ? "Tus videojuegos" : "Inicia sesión para ver los videojuegos"}</h1>
+            <div className={styles.videoGameListHeader}>
+                <h1>{user ? `Bienvenido ${user}` : "Inicia sesión para ver los videojuegos"}</h1>
+                <TextField
+                    label="search" type="text" margin="normal" value={searchText}
+                    onChange={(e) => setSearchText(e.target.value)}
+                    slotProps={{
+                        input: {
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <Search sx={{ color: "#00ffff" }} />
+                                </InputAdornment>
+                            ),
+                        },
+                    }}
+                    sx={{
+                        "& label": { color: "#00ffff" },
+                        "& label.Mui-focused": { color: "#00aaaa" },
+                        "& .MuiOutlinedInput-root": {
+                            "& fieldset": { borderColor: "#00ffff", borderWidth: "2px" },
+                            "&:hover fieldset": { borderColor: "#00aaaa" },
+                            "&.Mui-focused fieldset": { borderColor: "#00cccc" },
+                            backgroundColor: "rgba(0, 0, 0, 0.5)",
+                            borderRadius: "8px",
+                        },
+                        input: { color: "#ffffff" },
+                    }}
+                />
+            </div>
 
             {(category !== undefined || selectedPlatform !== null) && user && (
                 <div className={styles.categoryInfo}>
